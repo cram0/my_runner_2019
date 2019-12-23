@@ -12,7 +12,7 @@ void run(void)
     sfRenderWindow *window = sfRenderWindow_create((sfVideoMode){896, 840, 32},
     "Alucard's Journey", sfClose, NULL);
     sfEvent event;
-    sfRenderWindow_setFramerateLimit(window, 60);
+    sfRenderWindow_setFramerateLimit(window, 120);
     while (sfRenderWindow_isOpen(window)) {
         while (sfRenderWindow_pollEvent(window, &event)) {
             if (event.type == sfEvtClosed)

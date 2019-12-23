@@ -31,7 +31,6 @@ typedef struct player {
 } player ;
 
 typedef struct running_scene {
-
     
 } running_scene ;
 
