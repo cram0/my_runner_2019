@@ -28,7 +28,15 @@ typedef struct player {
     sfVector2f pos;
     float speed;
     int state;
-
 } player ;
+
+typedef struct running_scene {
+
+    
+} running_scene ;
+
+typedef struct game_core {
+    running_scene running_scene;
+} game_core ;
 
 #endif
