@@ -10,10 +10,16 @@
 void aji_sixth_layer(parallax_layer *_layer)
 {
     _layer->texture = sfTexture_createFromFile("img/background/6_layer.png", NULL);
-    _layer->sprite = sfSprite_create();
-    _layer->x = 0;
-    _layer->y = 0;
-    sfSprite_setTexture(_layer->sprite, _layer->texture, sfTrue);
-    sfSprite_setPosition(_layer->sprite, (sfVector2f){_layer->x, _layer->y});
-    sfSprite_setScale(_layer->sprite, (sfVector2f){3.5, 3.5});
+    _layer->sprite_one = sfSprite_create();
+    _layer->sprite_two = sfSprite_create();
+    _layer->pos_one.x = 0;
+    _layer->pos_one.y = 0;
+    _layer->pos_two.x = 896;
+    _layer->pos_two.y = 0;
+    sfSprite_setTexture(_layer->sprite_one, _layer->texture, sfTrue);
+    sfSprite_setTexture(_layer->sprite_two, _layer->texture, sfTrue);
+    sfSprite_setPosition(_layer->sprite_one, (sfVector2f){_layer->pos_one.x, _layer->pos_one.x});
+    sfSprite_setPosition(_layer->sprite_two, (sfVector2f){_layer->pos_two.x, _layer->pos_two.y});
+    sfSprite_setScale(_layer->sprite_one, (sfVector2f){3.5, 3.5});
+    sfSprite_setScale(_layer->sprite_two, (sfVector2f){3.5, 3.5});
 }

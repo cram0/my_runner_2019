@@ -31,10 +31,11 @@ typedef struct player {
 } player ;
 
 typedef struct parallax_layer {
-    sfSprite *sprite;
+    sfSprite *sprite_one;
+    sfSprite *sprite_two;
     sfTexture *texture;
-    float x;
-    float y;
+    sfVector2f pos_one;
+    sfVector2f pos_two;
 } parallax_layer ;
 
 typedef struct parallax {
@@ -65,5 +66,12 @@ void aji_fifth_layer(parallax_layer *);
 void aji_sixth_layer(parallax_layer *);
 void aju_game_core(game_core *);
 void aju_running_scene(running_scene *);
+void aju_parallax(parallax *);
+void aju_first_layer(parallax_layer *);
+void aju_second_layer(parallax_layer *);
+void aju_third_layer(parallax_layer *);
+void aju_fourth_layer(parallax_layer *);
+void aju_fifth_layer(parallax_layer *);
+void aju_sixth_layer(parallax_layer *);
 
 #endif
