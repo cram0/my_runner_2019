@@ -9,5 +9,5 @@
 
 void ajinitialize_game_core(game_core *_game_core)
 {
-    ajinitialize_running_scene(_game_core->running_scene);
+    ajinitialize_running_scene(&_game_core->running_scene);
 }
