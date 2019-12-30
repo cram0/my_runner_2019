@@ -54,15 +54,16 @@ typedef struct game_core {
     running_scene running_scene;
 } game_core ;
 
-void ajinitialize_game_core(game_core *);
-void ajinitialize_running_scene(running_scene *);
-void ajinitialize_parallax(parallax *);
-void ajinitialize_first_layer(parallax_layer *);
-void ajinitialize_second_layer(parallax_layer *);
-void ajinitialize_third_layer(parallax_layer *);
-void ajinitialize_fourth_layer(parallax_layer *);
-void ajinitialize_fifth_layer(parallax_layer *);
-void ajinitialize_sixth_layer(parallax_layer *);
-
+void aji_game_core(game_core *);
+void aji_running_scene(running_scene *);
+void aji_parallax(parallax *);
+void aji_first_layer(parallax_layer *);
+void aji_second_layer(parallax_layer *);
+void aji_third_layer(parallax_layer *);
+void aji_fourth_layer(parallax_layer *);
+void aji_fifth_layer(parallax_layer *);
+void aji_sixth_layer(parallax_layer *);
+void aju_game_core(game_core *);
+void aju_running_scene(running_scene *);
 
 #endif

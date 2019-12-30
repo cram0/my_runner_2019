@@ -7,7 +7,7 @@
 
 #include "../include/my_runner.h"
 
-void ajinitialize_sixth_layer(parallax_layer *_layer)
+void aji_sixth_layer(parallax_layer *_layer)
 {
     _layer->texture = sfTexture_createFromFile("img/background/6_layer.png", NULL);
     _layer->sprite = sfSprite_create();

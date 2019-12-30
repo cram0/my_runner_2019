@@ -2,12 +2,12 @@
 ** EPITECH PROJECT, 2019
 ** MUL_my_runner_2019
 ** File description:
-** ajinitialize_layers1
+** aji_layers1
 */
 
 #include "../include/my_runner.h"
 
-void ajinitialize_first_layer(parallax_layer *_layer)
+void aji_first_layer(parallax_layer *_layer)
 {
     _layer->texture = sfTexture_createFromFile("img/background/1_layer.png", NULL);
     _layer->sprite = sfSprite_create();
@@ -18,7 +18,7 @@ void ajinitialize_first_layer(parallax_layer *_layer)
     sfSprite_setScale(_layer->sprite, (sfVector2f){3.5, 3.5});
 }
 
-void ajinitialize_second_layer(parallax_layer *_layer)
+void aji_second_layer(parallax_layer *_layer)
 {
     _layer->texture = sfTexture_createFromFile("img/background/2_layer.png", NULL);
     _layer->sprite = sfSprite_create();
@@ -29,7 +29,7 @@ void ajinitialize_second_layer(parallax_layer *_layer)
     sfSprite_setScale(_layer->sprite, (sfVector2f){3.5, 3.5});
 }
 
-void ajinitialize_third_layer(parallax_layer *_layer)
+void aji_third_layer(parallax_layer *_layer)
 {
     _layer->texture = sfTexture_createFromFile("img/background/3_layer.png", NULL);
     _layer->sprite = sfSprite_create();
@@ -40,7 +40,7 @@ void ajinitialize_third_layer(parallax_layer *_layer)
     sfSprite_setScale(_layer->sprite, (sfVector2f){3.5, 3.5});
 }
 
-void ajinitialize_fourth_layer(parallax_layer *_layer)
+void aji_fourth_layer(parallax_layer *_layer)
 {
     _layer->texture = sfTexture_createFromFile("img/background/4_layer.png", NULL);
     _layer->sprite = sfSprite_create();
@@ -51,7 +51,7 @@ void ajinitialize_fourth_layer(parallax_layer *_layer)
     sfSprite_setScale(_layer->sprite, (sfVector2f){3.5, 3.5});
 }
 
-void ajinitialize_fifth_layer(parallax_layer *_layer)
+void aji_fifth_layer(parallax_layer *_layer)
 {
     _layer->texture = sfTexture_createFromFile("img/background/5_layer.png", NULL);
     _layer->sprite = sfSprite_create();
