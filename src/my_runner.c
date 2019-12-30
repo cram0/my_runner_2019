@@ -13,6 +13,9 @@ void run(void)
     "Alucard's Journey", sfClose, NULL);
     sfEvent event;
     sfRenderWindow_setFramerateLimit(window, 120);
+    game_core game_core;
+    ajinitialize_game_core(&game_core);
+    
     while (sfRenderWindow_isOpen(window)) {
         while (sfRenderWindow_pollEvent(window, &event)) {
             if (event.type == sfEvtClosed)

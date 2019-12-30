@@ -30,12 +30,30 @@ typedef struct player {
     int state;
 } player ;
 
+typedef struct parallax_layer {
+    sfSprite *sprite;
+    sfTexture *texture;
+    float x;
+    float y;
+} parallax_layer ;
+
+typedef struct parallax {
+    parallax_layer first_layer;
+    parallax_layer second_layer;
+    parallax_layer third_layer;
+    parallax_layer fourth_layer;
+    parallax_layer fifth_layer;
+    parallax_layer sixth_layer;
+} parallax ;
+
 typedef struct running_scene {
-    
+    parallax parallax;
 } running_scene ;
 
 typedef struct game_core {
     running_scene running_scene;
 } game_core ;
+
+ajinitialize_game_core(game_core *);
 
 #endif
