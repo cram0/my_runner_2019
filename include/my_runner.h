@@ -20,6 +20,7 @@
 enum player_state {
     RUNNING,
     JUMPING,
+    FALLING,
     CROUCHING,
     HIT,
     DEAD
@@ -59,6 +60,7 @@ typedef struct parallax {
 
 typedef struct running_scene {
     sfRenderWindow *window;
+    sfEvent event;
     parallax parallax;
     int state;
 } running_scene ;
@@ -82,6 +84,7 @@ void aji_sixth_layer(parallax_layer *);
 
 void aju_game_core(game_core *);
 void aju_running_scene(running_scene *);
+void aju_running_scene_event(running_scene *);
 void aju_parallax(parallax *);
 void aju_first_layer(parallax_layer *);
 void aju_second_layer(parallax_layer *);

@@ -14,13 +14,9 @@ void run(void)
     sfEvent event;
     sfRenderWindow_setFramerateLimit(window, 60);
     game_core game_core;
-    aji_game_core(&game_core, window);
     
+    aji_game_core(&game_core, window);
     while (sfRenderWindow_isOpen(window)) {
-        while (sfRenderWindow_pollEvent(window, &event)) {
-            if (event.type == sfEvtClosed)
-                sfRenderWindow_close(window);
-        }
         aju_game_core(&game_core);
         ajd_game_core(&game_core, window);
     }
