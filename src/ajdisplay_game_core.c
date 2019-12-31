@@ -9,7 +9,7 @@
 
 void ajd_game_core(game_core *_game_core, sfRenderWindow *_window)
 {
-    if (_game_core->state == INGAME)
+    if (_game_core->game_state == INGAME)
         ajd_running_scene(&_game_core->running_scene);
     sfRenderWindow_display(_window);
 }

@@ -16,6 +16,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 
 enum player_state {
     RUNNING,
@@ -65,10 +66,15 @@ typedef struct running_scene {
     int state;
 } running_scene ;
 
+typedef struct menu_scene {
+
+} menu_scene ;
+
 typedef struct game_core {
     sfRenderWindow *window;
-    int state;
+    int game_state;
     running_scene running_scene;
+    menu_scene menu_scene;
 } game_core ;
 
 void aji_game_core(game_core *, sfRenderWindow *);

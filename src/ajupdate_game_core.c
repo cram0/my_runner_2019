@@ -9,6 +9,6 @@
 
 void aju_game_core(game_core *_game_core)
 {
-    if (_game_core->state == INGAME)
+    if (_game_core->game_state == INGAME)
         aju_running_scene(&_game_core->running_scene);
 }

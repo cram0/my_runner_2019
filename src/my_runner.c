@@ -14,7 +14,7 @@ void run(void)
     sfEvent event;
     sfRenderWindow_setFramerateLimit(window, 60);
     game_core game_core;
-    
+
     aji_game_core(&game_core, window);
     while (sfRenderWindow_isOpen(window)) {
         aju_game_core(&game_core);
@@ -22,8 +22,16 @@ void run(void)
     }
 }
 
-int main(void)
+void check_args(char *args)
 {
+    if (args[0] == '-' && args[1] == 'h')
+        write(0, "LOLE", 4);
+}
+
+int main(int ac, char **av)
+{
+    if (ac == 2)
+        check_args(av[1]);
     run();
     return (0);
 }
