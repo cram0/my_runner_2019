@@ -77,6 +77,9 @@ typedef struct game_core {
     menu_scene menu_scene;
 } game_core ;
 
+void check_args(char *);
+void run(void);
+
 void aji_game_core(game_core *, sfRenderWindow *);
 void aji_running_scene(running_scene *, sfRenderWindow *);
 void aji_parallax(parallax *);
