@@ -11,4 +11,5 @@ void aju_running_scene(running_scene *_running_scene)
 {
     aju_running_scene_event(_running_scene);
     aju_parallax(&_running_scene->parallax);
+    aju_player(&_running_scene->player);
 }

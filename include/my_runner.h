@@ -33,6 +33,8 @@ enum game_state {
 } ;
 
 typedef struct player {
+    sfClock *anim_clock;
+    sfTime elapsed_time;
     sfSprite *sprite;
     sfTexture *texture;
     sfSound *sound;
@@ -63,6 +65,7 @@ typedef struct running_scene {
     sfRenderWindow *window;
     sfEvent event;
     parallax parallax;
+    player player;
     int state;
 } running_scene ;
 
@@ -83,6 +86,7 @@ void run(void);
 void aji_game_core(game_core *, sfRenderWindow *);
 void aji_running_scene(running_scene *, sfRenderWindow *);
 void aji_parallax(parallax *);
+void aji_player(player *);
 void aji_first_layer(parallax_layer *);
 void aji_second_layer(parallax_layer *);
 void aji_third_layer(parallax_layer *);
@@ -95,6 +99,7 @@ void aju_game_core(game_core *);
 void aju_running_scene(running_scene *);
 void aju_running_scene_event(running_scene *);
 void aju_parallax(parallax *);
+void aju_player(player *);
 void aju_first_layer(parallax_layer *);
 void aju_second_layer(parallax_layer *);
 void aju_third_layer(parallax_layer *);
