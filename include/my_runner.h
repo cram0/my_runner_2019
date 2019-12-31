@@ -45,6 +45,7 @@ typedef struct parallax_layer {
     sfTexture *texture;
     sfVector2f pos_one;
     sfVector2f pos_two;
+    sfClock *move_clock;
 } parallax_layer ;
 
 typedef struct parallax {
@@ -64,8 +65,8 @@ typedef struct running_scene {
 
 typedef struct game_core {
     sfRenderWindow *window;
-    running_scene running_scene;
     int state;
+    running_scene running_scene;
 } game_core ;
 
 void aji_game_core(game_core *, sfRenderWindow *);
