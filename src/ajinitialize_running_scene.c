@@ -7,7 +7,8 @@
 
 #include "../include/my_runner.h"
 
-void aji_running_scene(running_scene *_running_scene)
+void aji_running_scene(running_scene *_running_scene, sfRenderWindow *_window)
 {
+    _running_scene->window = _window;
     aji_parallax(&_running_scene->parallax);
 }

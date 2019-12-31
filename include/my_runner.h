@@ -13,12 +13,21 @@
 #include <SFML/System.h>
 #include <SFML/Graphics.h>
 
+#include <stdbool.h>
+#include <stdlib.h>
+#include <time.h>
+
 enum player_state {
     RUNNING,
     JUMPING,
     CROUCHING,
     HIT,
     DEAD
+} ;
+
+enum game_state {
+    INGAME,
+    MENU
 } ;
 
 typedef struct player {
@@ -48,15 +57,19 @@ typedef struct parallax {
 } parallax ;
 
 typedef struct running_scene {
+    sfRenderWindow *window;
     parallax parallax;
+    int state;
 } running_scene ;
 
 typedef struct game_core {
+    sfRenderWindow *window;
     running_scene running_scene;
+    int state;
 } game_core ;
 
-void aji_game_core(game_core *);
-void aji_running_scene(running_scene *);
+void aji_game_core(game_core *, sfRenderWindow *);
+void aji_running_scene(running_scene *, sfRenderWindow *);
 void aji_parallax(parallax *);
 void aji_first_layer(parallax_layer *);
 void aji_second_layer(parallax_layer *);
@@ -64,6 +77,8 @@ void aji_third_layer(parallax_layer *);
 void aji_fourth_layer(parallax_layer *);
 void aji_fifth_layer(parallax_layer *);
 void aji_sixth_layer(parallax_layer *);
+
+
 void aju_game_core(game_core *);
 void aju_running_scene(running_scene *);
 void aju_parallax(parallax *);
@@ -73,5 +88,10 @@ void aju_third_layer(parallax_layer *);
 void aju_fourth_layer(parallax_layer *);
 void aju_fifth_layer(parallax_layer *);
 void aju_sixth_layer(parallax_layer *);
+
+
+void ajd_game_core(game_core *, sfRenderWindow *);
+void ajd_running_scene(running_scene *);
+void ajd_parallax(parallax *, sfRenderWindow *);
 
 #endif

@@ -7,7 +7,9 @@
 
 #include "../include/my_runner.h"
 
-void aji_game_core(game_core *_game_core)
+void aji_game_core(game_core *_game_core, sfRenderWindow *_window)
 {
-    aji_running_scene(&_game_core->running_scene);
+    _game_core->window = _window;
+    _game_core->state = INGAME;
+    aji_running_scene(&_game_core->running_scene, _window);
 }
