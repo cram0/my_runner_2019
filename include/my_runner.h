@@ -19,18 +19,33 @@
 #include <unistd.h>
 
 enum player_state {
+    IDLE,
+    IDLETORUN,
     RUNNING,
     JUMPING,
     FALLING,
-    CROUCHING,
-    HIT,
-    DEAD
+    CROUCH
 } ;
 
 enum game_state {
     INGAME,
     MENU
 } ;
+
+typedef struct stance {
+    sfTexture *texture;
+    sfSprite *sprite;
+    sfIntRect *rect;
+} stance ;
+
+typedef struct player_stance {
+    stance idling;
+    stance idle_to_run;
+    stance running;
+    stance jumping;
+    stance falling;
+    stance crouch;
+} player_stance ;
 
 typedef struct player {
     sfClock *anim_clock;
@@ -39,6 +54,7 @@ typedef struct player {
     sfTexture *texture;
     sfSound *sound;
     sfVector2f pos;
+    player_stance stance;
     float speed;
     int state;
 } player ;
@@ -87,6 +103,17 @@ void aji_game_core(game_core *, sfRenderWindow *);
 void aji_running_scene(running_scene *, sfRenderWindow *);
 void aji_parallax(parallax *);
 void aji_player(player *);
+void aji_player_stance(player_stance *);
+void aji_player_stance_idle(stance *);
+void aji_player_stance_running(stance *);
+void aji_player_stance_jumping(stance *);
+void aji_player_stance_falling(stance *);
+void aji_player_stance_crouch(stance *);
+sfIntRect *aji_player_stance_idle_array(void);
+sfIntRect *aji_player_stance_running_array(void);
+sfIntRect *aji_player_stance_jumping_array(void);
+sfIntRect *aji_player_stance_falling_array(void);
+sfIntRect *aji_player_stance_crouch_array(void);
 void aji_first_layer(parallax_layer *);
 void aji_second_layer(parallax_layer *);
 void aji_third_layer(parallax_layer *);

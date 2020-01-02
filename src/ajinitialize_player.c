@@ -9,6 +9,7 @@
 
 void aji_player(player *_player)
 {
+    aji_player_stance(&_player->stance);
     _player->anim_clock = sfClock_create();
-    _player->
+
 }
