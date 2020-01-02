@@ -15,6 +15,7 @@ sfIntRect *aji_player_stance_crouch_array(void)
     {462, 21, 37, 25}, {499, 21, 30, 25}, {529, 21, 28, 25}, {557, 14, 25, 32},
     {582, 3, 24, 43}, {606, 1, 18, 45}
     };
+    return (&temp);
 }
 
 sfIntRect *aji_player_stance_idle_array(void)
