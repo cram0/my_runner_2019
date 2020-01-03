@@ -9,7 +9,10 @@
 
 void aji_player(player *_player)
 {
-    aji_player_stance(&_player->stance);
+    aji_player_stance(&_player->stance_anim);
     _player->anim_clock = sfClock_create();
-
+    _player->sprite = sfSprite_create();
+    _player->pos.x = 0;
+    _player->pos.y = 0;
+    _player->state = IDLE;
 }

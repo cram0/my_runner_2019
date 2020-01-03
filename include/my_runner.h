@@ -40,7 +40,6 @@ typedef struct stance {
 
 typedef struct player_stance {
     stance idling;
-    stance idle_to_run;
     stance running;
     stance jumping;
     stance falling;
@@ -54,7 +53,7 @@ typedef struct player {
     sfTexture *texture;
     sfSound *sound;
     sfVector2f pos;
-    player_stance stance;
+    player_stance stance_anim;
     float speed;
     int state;
 } player ;
