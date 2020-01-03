@@ -35,7 +35,7 @@ enum game_state {
 typedef struct stance {
     sfTexture *texture;
     sfSprite *sprite;
-    sfIntRect *rect;
+    sfIntRect const *rect;
 } stance ;
 
 typedef struct player_stance {
@@ -47,13 +47,16 @@ typedef struct player_stance {
 } player_stance ;
 
 typedef struct player {
+    sfClock *move_clock;
     sfClock *anim_clock;
     sfTime elapsed_time;
+    sfEvent player_event;
     sfSprite *sprite;
     sfTexture *texture;
     sfSound *sound;
     sfVector2f pos;
     player_stance stance_anim;
+    float dy;
     float speed;
     int state;
 } player ;
@@ -108,11 +111,6 @@ void aji_player_stance_running(stance *);
 void aji_player_stance_jumping(stance *);
 void aji_player_stance_falling(stance *);
 void aji_player_stance_crouch(stance *);
-sfIntRect *aji_player_stance_idle_array(void);
-sfIntRect *aji_player_stance_running_array(void);
-sfIntRect *aji_player_stance_jumping_array(void);
-sfIntRect *aji_player_stance_falling_array(void);
-sfIntRect *aji_player_stance_crouch_array(void);
 void aji_first_layer(parallax_layer *);
 void aji_second_layer(parallax_layer *);
 void aji_third_layer(parallax_layer *);
@@ -126,6 +124,8 @@ void aju_running_scene(running_scene *);
 void aju_running_scene_event(running_scene *);
 void aju_parallax(parallax *);
 void aju_player(player *);
+void aju_player_event(player *);
+void aju_player_position(player *);
 void aju_first_layer(parallax_layer *);
 void aju_second_layer(parallax_layer *);
 void aju_third_layer(parallax_layer *);
@@ -137,5 +137,5 @@ void aju_sixth_layer(parallax_layer *);
 void ajd_game_core(game_core *, sfRenderWindow *);
 void ajd_running_scene(running_scene *);
 void ajd_parallax(parallax *, sfRenderWindow *);
-
+void ajd_player(player *, sfRenderWindow *);
 #endif
