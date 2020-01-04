@@ -10,31 +10,104 @@ static const float GRAVITY = 1250;
 
 void aju_player_event(player *_player)
 {
-    // while (sfRenderWindow_pollEvent())
     if (sfKeyboard_isKeyPressed(sfKeySpace))
     {
-        if (_player->state != JUMPING) {
+        if (_player->state != JUMPING && _player->state != FALLING) {
             _player->state = JUMPING;
+            _player->stance_anim.jumping.rect.left = 0;
             _player->dy = -700;
         }
     }
-    if (_player->pos.y >= 400)
+}
+
+void aju_player_animation_idle(player *_player)
+{
+    float test = sfTime_asSeconds(sfClock_getElapsedTime(_player->anim_clock));
+    if (test > 0.110) {
+        if (_player->stance_anim.idling.rect.left == _player->stance_anim.idling.rect.width * 5)
+            _player->stance_anim.idling.rect.left = 0;
+        sfSprite_setTextureRect(_player->sprite, _player->stance_anim.idling.rect);
+        _player->stance_anim.idling.rect.left += _player->stance_anim.idling.rect.width;
+        sfClock_restart(_player->anim_clock);
+    }
+}
+
+void aju_player_animation_jumping(player *_player)
+{
+    float test = sfTime_asSeconds(sfClock_getElapsedTime(_player->anim_clock));
+    if (test > 0.100) {
+        if (_player->stance_anim.jumping.rect.left == _player->stance_anim.jumping.rect.width * 4)
+            _player->stance_anim.jumping.rect.left = _player->stance_anim.jumping.rect.width * 3;
+        sfSprite_setTextureRect(_player->sprite, _player->stance_anim.jumping.rect);
+        _player->stance_anim.jumping.rect.left += _player->stance_anim.jumping.rect.width;
+        sfClock_restart(_player->anim_clock);
+    }
+}
+
+void aju_player_animation_falling(player *_player)
+{
+    float test = sfTime_asSeconds(sfClock_getElapsedTime(_player->anim_clock));
+    if (test > 0.050) {
+        if (_player->stance_anim.falling.rect.left >= 658){
+            _player->stance_anim.falling.rect.left = 0;
+        }
+        sfSprite_setTextureRect(_player->sprite, _player->stance_anim.falling.rect);
+        _player->stance_anim.falling.rect.left += _player->stance_anim.falling.rect.width;
+        sfClock_restart(_player->anim_clock);
+    }
+}
+
+void aju_player_animation(player *_player)
+{
+    switch (_player->state)
+    {
+    case IDLE:
+        aju_player_animation_idle(_player);
+        break;
+    case JUMPING:
+        aju_player_animation_jumping(_player);
+        break;
+    case FALLING:
+        aju_player_animation_falling(_player);
+        break;
+    }
+
+}
+
+void aju_player_position_y(player *_player)
+{
+    float dt = sfTime_asSeconds(sfClock_getElapsedTime(_player->move_clock));
+    if (_player->state == IDLE)
+        _player->dy = 0;
+    else {
+        _player->dy += GRAVITY * dt;
+    }
+        _player->pos.y += _player->dy * dt;
+    if (_player->pos.y > 371.0) {
+        if (_player->state != IDLE) {
+        }
+        _player->pos.y = 371.0;
         _player->state = IDLE;
+    }
+}
+
+void aju_player_check_state(player *_player)
+{
+    if (_player->dy > -50)
+        _player->state = FALLING;
 }
 
 void aju_player_position(player *_player)
 {
-    float dt = sfTime_asSeconds(sfClock_getElapsedTime(_player->move_clock));
-    _player->dy = _player->dy + GRAVITY * dt;
-    _player->pos.y = _player->pos.y + _player->dy * dt;
-    if (_player->pos.y > 400)
-        _player->pos.y = 400;
+    aju_player_check_state(_player);
+    aju_player_position_y(_player);
     sfSprite_setPosition(_player->sprite, _player->pos);
+    sfClock_restart(_player->move_clock);
 }
 
 void aju_player(player *_player)
 {
     aju_player_event(_player);
     aju_player_position(_player);
-    sfClock_restart(_player->move_clock);
+    aju_player_animation(_player);
 }

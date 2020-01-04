@@ -7,10 +7,11 @@
 
 #include "../include/my_runner.h"
 
-void aju_second_layer(parallax_layer *_layer)
+void aju_second_layer(parallax_layer *_layer, sfClock *_clock)
 {
-    _layer->pos_one.x -= 0.5;
-    _layer->pos_two.x -= 0.5;
+    float dt = sfTime_asSeconds(sfClock_getElapsedTime(_clock));
+    _layer->pos_one.x -= 50 * dt;
+    _layer->pos_two.x -= 50 * dt;
     if (_layer->pos_one.x <= -896)
         _layer->pos_one.x = 896;
     if (_layer->pos_two.x <= -896)
@@ -19,10 +20,11 @@ void aju_second_layer(parallax_layer *_layer)
     sfSprite_setPosition(_layer->sprite_two, (sfVector2f){_layer->pos_two.x, _layer->pos_two.y});
 }
 
-void aju_third_layer(parallax_layer *_layer)
+void aju_third_layer(parallax_layer *_layer, sfClock *_clock)
 {
-    _layer->pos_one.x -= 1.5;
-    _layer->pos_two.x -= 1.5;
+    float dt = sfTime_asSeconds(sfClock_getElapsedTime(_clock));
+    _layer->pos_one.x -= 100 * dt;
+    _layer->pos_two.x -= 100 * dt;
     if (_layer->pos_one.x <= -896)
         _layer->pos_one.x = 896;
     if (_layer->pos_two.x <= -896)
@@ -31,10 +33,11 @@ void aju_third_layer(parallax_layer *_layer)
     sfSprite_setPosition(_layer->sprite_two, (sfVector2f){_layer->pos_two.x, _layer->pos_two.y});
 }
 
-void aju_fourth_layer(parallax_layer *_layer)
+void aju_fourth_layer(parallax_layer *_layer, sfClock *_clock)
 {
-    _layer->pos_one.x -= 2.5;
-    _layer->pos_two.x -= 2.5;
+    float dt = sfTime_asSeconds(sfClock_getElapsedTime(_clock));
+    _layer->pos_one.x -= 150 * dt;
+    _layer->pos_two.x -= 150 * dt;
     if (_layer->pos_one.x <= -896)
         _layer->pos_one.x = 896;
     if (_layer->pos_two.x <= -896)
@@ -43,10 +46,11 @@ void aju_fourth_layer(parallax_layer *_layer)
     sfSprite_setPosition(_layer->sprite_two, (sfVector2f){_layer->pos_two.x, _layer->pos_two.y});
 }
 
-void aju_fifth_layer(parallax_layer *_layer)
+void aju_fifth_layer(parallax_layer *_layer, sfClock *_clock)
 {
-    _layer->pos_one.x -= 3.5;
-    _layer->pos_two.x -= 3.5;
+    float dt = sfTime_asSeconds(sfClock_getElapsedTime(_clock));
+    _layer->pos_one.x -= 200 * dt;
+    _layer->pos_two.x -= 200 * dt;
     if (_layer->pos_one.x <= -896)
         _layer->pos_one.x = 896;
     if (_layer->pos_two.x <= -896)
@@ -55,10 +59,11 @@ void aju_fifth_layer(parallax_layer *_layer)
     sfSprite_setPosition(_layer->sprite_two, (sfVector2f){_layer->pos_two.x, _layer->pos_two.y});
 }
 
-void aju_sixth_layer(parallax_layer *_layer)
+void aju_sixth_layer(parallax_layer *_layer, sfClock *_clock)
 {
-    _layer->pos_one.x -= 4.5;
-    _layer->pos_two.x -= 4.5;
+    float dt = sfTime_asSeconds(sfClock_getElapsedTime(_clock));
+    _layer->pos_two.x -= 400 * dt;
+    _layer->pos_one.x -= 400 * dt;
     if (_layer->pos_one.x <= -896)
         _layer->pos_one.x = 896;
     if (_layer->pos_two.x <= -896)

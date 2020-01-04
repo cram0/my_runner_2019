@@ -11,10 +11,9 @@ void run(void)
 {
     sfRenderWindow *window = sfRenderWindow_create((sfVideoMode){896, 840, 32},
     "Alucard's Journey", sfClose, NULL);
-    sfEvent event;
-    sfRenderWindow_setFramerateLimit(window, 60);
-    game_core game_core;
+    sfRenderWindow_setFramerateLimit(window, 120);
 
+    game_core game_core;
     aji_game_core(&game_core, window);
     while (sfRenderWindow_isOpen(window)) {
         aju_game_core(&game_core);
@@ -33,5 +32,6 @@ int main(int ac, char **av)
     if (ac == 2)
         check_args(av[1]);
     run();
+
     return (0);
 }

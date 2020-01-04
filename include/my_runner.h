@@ -33,9 +33,7 @@ enum game_state {
 } ;
 
 typedef struct stance {
-    sfTexture *texture;
-    sfSprite *sprite;
-    sfIntRect const *rect;
+    sfIntRect rect;
 } stance ;
 
 typedef struct player_stance {
@@ -71,6 +69,7 @@ typedef struct parallax_layer {
 } parallax_layer ;
 
 typedef struct parallax {
+    sfClock *layer_clock;
     parallax_layer first_layer;
     parallax_layer second_layer;
     parallax_layer third_layer;
@@ -126,12 +125,12 @@ void aju_parallax(parallax *);
 void aju_player(player *);
 void aju_player_event(player *);
 void aju_player_position(player *);
-void aju_first_layer(parallax_layer *);
-void aju_second_layer(parallax_layer *);
-void aju_third_layer(parallax_layer *);
-void aju_fourth_layer(parallax_layer *);
-void aju_fifth_layer(parallax_layer *);
-void aju_sixth_layer(parallax_layer *);
+void aju_first_layer(parallax_layer *, sfClock *);
+void aju_second_layer(parallax_layer *, sfClock *);
+void aju_third_layer(parallax_layer *, sfClock *);
+void aju_fourth_layer(parallax_layer *, sfClock *);
+void aju_fifth_layer(parallax_layer *, sfClock *);
+void aju_sixth_layer(parallax_layer *, sfClock *);
 
 
 void ajd_game_core(game_core *, sfRenderWindow *);
