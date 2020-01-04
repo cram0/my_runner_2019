@@ -15,7 +15,7 @@ void aju_player_event(player *_player)
         if (_player->state != JUMPING && _player->state != FALLING) {
             _player->state = JUMPING;
             _player->stance_anim.falling.rect.left = 0;            _player->stance_anim.jumping.rect.left = 0;
-            _player->stance_anim.running.rect.top = 0;
+            // _player->stance_anim.running.rect.top = 0;
             _player->stance_anim.running.rect.left = 0;
             _player->dy = -700;
         }
