@@ -15,6 +15,8 @@ void aju_player_event(player *_player)
         if (_player->state != JUMPING && _player->state != FALLING) {
             _player->state = JUMPING;
             _player->stance_anim.jumping.rect.left = 0;
+            _player->stance_anim.running.rect.top = 0;
+            _player->stance_anim.running.rect.left = 0;
             _player->dy = -700;
         }
     }
@@ -47,12 +49,26 @@ void aju_player_animation_jumping(player *_player)
 void aju_player_animation_falling(player *_player)
 {
     float test = sfTime_asSeconds(sfClock_getElapsedTime(_player->anim_clock));
-    if (test > 0.050) {
-        if (_player->stance_anim.falling.rect.left >= 658){
+    if (test > 0.100) {
+        if (_player->stance_anim.falling.rect.left == 658){
             _player->stance_anim.falling.rect.left = 0;
         }
         sfSprite_setTextureRect(_player->sprite, _player->stance_anim.falling.rect);
         _player->stance_anim.falling.rect.left += _player->stance_anim.falling.rect.width;
+        sfClock_restart(_player->anim_clock);
+    }
+}
+
+void aju_player_animation_running(player *_player)
+{
+    float test = sfTime_asSeconds(sfClock_getElapsedTime(_player->anim_clock));
+    if (test > 0.050) {
+        if (_player->stance_anim.running.rect.left == 720 && _player->stance_anim.running.rect.top == 0 || _player->stance_anim.running.rect.left == 768){
+            _player->stance_anim.running.rect.left = 0;
+            _player->stance_anim.running.rect.top = 51;
+        }
+        sfSprite_setTextureRect(_player->sprite, _player->stance_anim.running.rect);
+        _player->stance_anim.running.rect.left += _player->stance_anim.running.rect.width;
         sfClock_restart(_player->anim_clock);
     }
 }
@@ -70,6 +86,9 @@ void aju_player_animation(player *_player)
     case FALLING:
         aju_player_animation_falling(_player);
         break;
+    case RUNNING:
+        aju_player_animation_running(_player);
+        break;
     }
 
 }
@@ -77,23 +96,23 @@ void aju_player_animation(player *_player)
 void aju_player_position_y(player *_player)
 {
     float dt = sfTime_asSeconds(sfClock_getElapsedTime(_player->move_clock));
-    if (_player->state == IDLE)
+    if (_player->state == RUNNING)
         _player->dy = 0;
     else {
         _player->dy += GRAVITY * dt;
-    }
         _player->pos.y += _player->dy * dt;
-    if (_player->pos.y > 371.0) {
-        if (_player->state != IDLE) {
+    }
+    if (_player->pos.y > 357.0) {
+        if (_player->state != RUNNING) {
         }
-        _player->pos.y = 371.0;
-        _player->state = IDLE;
+        _player->pos.y = 357.0;
+        _player->state = RUNNING;
     }
 }
 
 void aju_player_check_state(player *_player)
 {
-    if (_player->dy > -50)
+    if (_player->dy > 0)
         _player->state = FALLING;
 }
 
@@ -103,6 +122,12 @@ void aju_player_position(player *_player)
     aju_player_position_y(_player);
     sfSprite_setPosition(_player->sprite, _player->pos);
     sfClock_restart(_player->move_clock);
+    if (_player->state == RUNNING)
+        printf("RUNNING\n");
+    if (_player->state == JUMPING)
+        printf("JUMPING\n");
+    if (_player->state == FALLING)
+        printf("FALLING\n");
 }
 
 void aju_player(player *_player)
