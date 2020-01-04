@@ -14,7 +14,7 @@ void aju_player_event(player *_player)
     {
         if (_player->state != JUMPING && _player->state != FALLING) {
             _player->state = JUMPING;
-            _player->stance_anim.jumping.rect.left = 0;
+            _player->stance_anim.falling.rect.left = 0;            _player->stance_anim.jumping.rect.left = 0;
             _player->stance_anim.running.rect.top = 0;
             _player->stance_anim.running.rect.left = 0;
             _player->dy = -700;
@@ -49,11 +49,12 @@ void aju_player_animation_jumping(player *_player)
 void aju_player_animation_falling(player *_player)
 {
     float test = sfTime_asSeconds(sfClock_getElapsedTime(_player->anim_clock));
-    if (test > 0.100) {
-        if (_player->stance_anim.falling.rect.left == 658){
-            _player->stance_anim.falling.rect.left = 0;
+    if (test > 0.070) {
+        if (_player->stance_anim.falling.rect.left == 329){
+            _player->stance_anim.falling.rect.left = 282;
         }
         sfSprite_setTextureRect(_player->sprite, _player->stance_anim.falling.rect);
+        printf("rect left falling : %d\n",_player->stance_anim.falling.rect.left);
         _player->stance_anim.falling.rect.left += _player->stance_anim.falling.rect.width;
         sfClock_restart(_player->anim_clock);
     }
@@ -78,7 +79,7 @@ void aju_player_animation(player *_player)
     switch (_player->state)
     {
     case IDLE:
-        aju_player_animation_idle(_player);
+        // aju_player_animation_idle(_player);
         break;
     case JUMPING:
         aju_player_animation_jumping(_player);
