@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT 2019
+** EPITECH PROJECT, 2019
 ** MUL_my_runner_2019
 ** File description:
 ** aji_parallax
