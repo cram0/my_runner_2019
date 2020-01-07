@@ -17,8 +17,19 @@ void aju_player_event(player *_player)
             _player->stance_anim.falling.rect.left = 0;
             _player->stance_anim.jumping.rect.left = 0;
             // _player->stance_anim.running.rect.top = 0;
+            _player->stance_anim.crouch.rect.left = 0;
             _player->stance_anim.running.rect.left = 192;
             _player->dy = -700;
+        }
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyS))
+    {
+        if (_player->state == RUNNING || _player->state == CROUCH) {
+            _player->state = CROUCH;
+            _player->stance_anim.jumping.rect.left = 0;
+            _player->stance_anim.falling.rect.left = 0;
+            _player->stance_anim.running.rect.left = 0;
+            _player->stance_anim.running.rect.top = 0;
         }
     }
 
@@ -64,8 +75,6 @@ void aju_player_animation_falling(player *_player)
         }
         sfSprite_setTextureRect(_player->sprite,
         _player->stance_anim.falling.rect);
-        printf("rect left falling : %d\n",
-        _player->stance_anim.falling.rect.left);
         _player->stance_anim.falling.rect.left +=
         _player->stance_anim.falling.rect.width;
         sfClock_restart(_player->anim_clock);
@@ -92,7 +101,16 @@ void aju_player_animation_running(player *_player)
 
 void aju_player_animation_crouch(player *_player)
 {
-
+    if (sfTime_asSeconds(sfClock_getElapsedTime(_player->anim_clock)) > 0.070) {
+        if (_player->stance_anim.crouch.rect.left == 540){
+            _player->stance_anim.crouch.rect.left = 495;
+        }
+        sfSprite_setTextureRect(_player->sprite,
+        _player->stance_anim.crouch.rect);
+        _player->stance_anim.crouch.rect.left +=
+        _player->stance_anim.crouch.rect.width;
+        sfClock_restart(_player->anim_clock);
+    }
 }
 
 void aju_player_animation(player *_player)
@@ -144,17 +162,19 @@ void aju_player_position(player *_player)
     aju_player_position_y(_player);
     sfSprite_setPosition(_player->sprite, _player->pos);
     sfClock_restart(_player->move_clock);
+}
+
+void aju_player(player *_player)
+{
+    aju_player_position(_player);
+    aju_player_event(_player);
+    if (_player->state == CROUCH)
+        printf("CROUCH\n");
     if (_player->state == RUNNING)
         printf("RUNNING\n");
     if (_player->state == JUMPING)
         printf("JUMPING\n");
     if (_player->state == FALLING)
         printf("FALLING\n");
-}
-
-void aju_player(player *_player)
-{
-    aju_player_event(_player);
-    aju_player_position(_player);
     aju_player_animation(_player);
 }

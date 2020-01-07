@@ -24,7 +24,7 @@ void run(void)
 void check_args(char *args)
 {
     if (args[0] == '-' && args[1] == 'h')
-        write(0, "LOLE", 4);
+        write(1, "LOLE", 4);
 }
 
 int main(int ac, char **av)

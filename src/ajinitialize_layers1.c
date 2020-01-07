@@ -20,8 +20,10 @@ void aji_first_layer(parallax_layer *_layer)
     sfSprite_setTexture(_layer->sprite_two, _layer->texture, sfTrue);
     sfSprite_setScale(_layer->sprite_one, (sfVector2f){3.5, 3.5});
     sfSprite_setScale(_layer->sprite_two, (sfVector2f){3.5, 3.5});
-    sfSprite_setPosition(_layer->sprite_one, (sfVector2f){_layer->pos_one.x, _layer->pos_one.x});
-    sfSprite_setPosition(_layer->sprite_two, (sfVector2f){_layer->pos_two.x, _layer->pos_two.y});
+    sfSprite_setPosition(_layer->sprite_one, (sfVector2f){_layer->pos_one.x,
+    _layer->pos_one.x});
+    sfSprite_setPosition(_layer->sprite_two, (sfVector2f){_layer->pos_two.x,
+    _layer->pos_two.y});
 }
 
 void aji_second_layer(parallax_layer *_layer)
