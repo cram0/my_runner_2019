@@ -17,6 +17,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
+#include <fcntl.h>
+#include <sys/stat.h>
 
 enum player_state {
     IDLE,
@@ -97,7 +99,8 @@ typedef struct game_core {
     menu_scene menu_scene;
 } game_core ;
 
-void check_args(char *);
+int check_args(char *);
+bool check_map(char *);
 void run(void);
 
 void aji_game_core(game_core *, sfRenderWindow *);
