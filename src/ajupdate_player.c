@@ -11,7 +11,6 @@ static const float GRAVITY = 1250;
 void aju_player_event(player *_player)
 {
     if (sfKeyboard_isKeyPressed(sfKeySpace))
-    {
         if (_player->state != JUMPING && _player->state != FALLING) {
             _player->state = JUMPING;
             _player->stance_anim.falling.rect.left = 0;
@@ -21,9 +20,7 @@ void aju_player_event(player *_player)
             _player->stance_anim.running.rect.left = 192;
             _player->dy = -700;
         }
-    }
     if (sfKeyboard_isKeyPressed(sfKeyS))
-    {
         if (_player->state == RUNNING || _player->state == CROUCH) {
             _player->state = CROUCH;
             _player->stance_anim.jumping.rect.left = 0;
@@ -31,8 +28,6 @@ void aju_player_event(player *_player)
             _player->stance_anim.running.rect.left = 0;
             _player->stance_anim.running.rect.top = 0;
         }
-    }
-
 }
 
 void aju_player_animation_idle(player *_player)
@@ -115,8 +110,7 @@ void aju_player_animation_crouch(player *_player)
 
 void aju_player_animation(player *_player)
 {
-    switch (_player->state)
-    {
+    switch (_player->state) {
     case CROUCH:
         aju_player_animation_crouch(_player);
         break;
@@ -130,7 +124,6 @@ void aju_player_animation(player *_player)
         aju_player_animation_running(_player);
         break;
     }
-
 }
 
 void aju_player_position_y(player *_player)
@@ -168,13 +161,13 @@ void aju_player(player *_player)
 {
     aju_player_position(_player);
     aju_player_event(_player);
-    if (_player->state == CROUCH)
-        printf("CROUCH\n");
-    if (_player->state == RUNNING)
-        printf("RUNNING\n");
-    if (_player->state == JUMPING)
-        printf("JUMPING\n");
-    if (_player->state == FALLING)
-        printf("FALLING\n");
+    // if (_player->state == CROUCH)
+    //     printf("CROUCH\n");
+    // if (_player->state == RUNNING)
+    //     printf("RUNNING\n");
+    // if (_player->state == JUMPING)
+    //     printf("JUMPING\n");
+    // if (_player->state == FALLING)
+    //     printf("FALLING\n");
     aju_player_animation(_player);
 }

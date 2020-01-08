@@ -7,9 +7,12 @@
 
 #include "../include/my_runner.h"
 
-void aji_game_core(game_core *_game_core, sfRenderWindow *_window)
+void aji_game_core(game_core *_game_core, char *map)
 {
-    _game_core->window = _window;
+    sfRenderWindow *window = sfRenderWindow_create((sfVideoMode){896, 840, 32},
+    "Alucard's Journey", sfClose, NULL);
+    sfRenderWindow_setFramerateLimit(window, 120);
+    _game_core->window = window;
     _game_core->game_state = INGAME;
-    aji_running_scene(&_game_core->running_scene, _window);
+    aji_running_scene(&_game_core->running_scene, _game_core->window, map);
 }

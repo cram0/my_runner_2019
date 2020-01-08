@@ -19,6 +19,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/stat.h>
+#include <stdio.h>
 
 enum player_state {
     IDLE,
@@ -27,6 +28,12 @@ enum player_state {
     JUMPING,
     FALLING,
     CROUCH
+} ;
+
+enum enemy_type {
+    BAT = 1,
+    ZOMBIE,
+    DOG
 } ;
 
 enum game_state {
@@ -80,10 +87,33 @@ typedef struct parallax {
     parallax_layer sixth_layer;
 } parallax ;
 
+typedef struct enemy_types {
+    sfTexture *bat_texture;
+    sfTexture *zombie_texture;
+} enemy_types ;
+
+typedef struct enemy_t {
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfVector2f pos;
+    sfIntRect text_rect;
+    sfIntRect hitbox;
+    enemy_types enemy_types;
+    struct enemy_t *previous;
+    struct enemy_t *next;
+} enemy_t ;
+
+typedef struct enemies_clocks {
+    sfClock *move_clock;
+    sfClock *anim_clock;
+} enemies_clocks ;
+
 typedef struct running_scene {
     sfRenderWindow *window;
     sfEvent event;
     parallax parallax;
+    enemy_t enemies;
+    enemies_clocks clocks;
     player player;
     int state;
 } running_scene ;
@@ -101,10 +131,18 @@ typedef struct game_core {
 
 int check_args(char *);
 bool check_map(char *);
-void run(void);
+void run(char *map);
 
-void aji_game_core(game_core *, sfRenderWindow *);
-void aji_running_scene(running_scene *, sfRenderWindow *);
+void aji_game_core(game_core *, char *);
+void aji_running_scene(running_scene *, sfRenderWindow *, char *);
+void aji_enemy_list_scratch(enemy_t *);
+void aji_enemy_types(enemy_types *);
+void aji_enemy_list(enemy_t *, char *);
+void aji_enemies_clocks(enemies_clocks *);
+void add_node_enemy(enemy_t *, int);
+void create_enemy_filled_list(enemy_t *, int);
+void create_enemy_empty_list(enemy_t *, int);
+void fill_enemy_texture(enemy_t *, int);
 void aji_parallax(parallax *);
 void aji_player(player *);
 void aji_player_stance(player_stance *);
@@ -134,10 +172,13 @@ void aju_third_layer(parallax_layer *, sfClock *);
 void aju_fourth_layer(parallax_layer *, sfClock *);
 void aju_fifth_layer(parallax_layer *, sfClock *);
 void aju_sixth_layer(parallax_layer *, sfClock *);
-
+void aju_enemy_list(running_scene *);
+void aju_enemy_list_pos(enemy_t *, enemies_clocks *);
+void reset_enemies_clocks(enemies_clocks *);
 
 void ajd_game_core(game_core *, sfRenderWindow *);
 void ajd_running_scene(running_scene *);
 void ajd_parallax(parallax *, sfRenderWindow *);
 void ajd_player(player *, sfRenderWindow *);
+void ajd_enemy_list(enemy_t *, sfRenderWindow *);
 #endif

@@ -10,6 +10,8 @@
 bool check_map(char *_map)
 {
     int fd = open(_map, O_RDONLY);
+        if (fd < 0)
+            return (false);
     struct stat *fd_stat = malloc(sizeof(struct stat));
     stat(_map, fd_stat);
     int map_size = fd_stat->st_size;
@@ -26,17 +28,13 @@ bool check_map(char *_map)
     return(true);
 }
 
-void run(void)
+void run(char *map)
 {
-    sfRenderWindow *window = sfRenderWindow_create((sfVideoMode){896, 840, 32},
-    "Alucard's Journey", sfClose, NULL);
-    sfRenderWindow_setFramerateLimit(window, 120);
-
     game_core game_core;
-    aji_game_core(&game_core, window);
-    while (sfRenderWindow_isOpen(window)) {
+    aji_game_core(&game_core, map);
+    while (sfRenderWindow_isOpen(game_core.window)) {
         aju_game_core(&game_core);
-        ajd_game_core(&game_core, window);
+        ajd_game_core(&game_core, game_core.window);
     }
 }
 
@@ -52,7 +50,7 @@ int check_args(char *arg)
             return (1);
         }
     }
-    run();
+    run(arg);
 }
 
 int main(int ac, char **av)
