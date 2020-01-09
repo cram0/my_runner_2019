@@ -32,8 +32,8 @@ enum player_state {
 
 enum enemy_type {
     BAT = 1,
-    ZOMBIE,
-    DOG
+    WEREWOLF,
+    PANTHER
 } ;
 
 enum game_state {
@@ -89,7 +89,8 @@ typedef struct parallax {
 
 typedef struct enemy_types {
     sfTexture *bat_texture;
-    sfTexture *zombie_texture;
+    sfTexture *panther_texture;
+    sfTexture *werewolf_texture;
 } enemy_types ;
 
 typedef struct enemy_t {
@@ -98,7 +99,6 @@ typedef struct enemy_t {
     sfVector2f pos;
     sfIntRect text_rect;
     sfIntRect hitbox;
-    enemy_types enemy_types;
     struct enemy_t *previous;
     struct enemy_t *next;
 } enemy_t ;
@@ -113,6 +113,7 @@ typedef struct running_scene {
     sfEvent event;
     parallax parallax;
     enemy_t *enemies;
+    enemy_types enemy_types;
     enemies_clocks clocks;
     player player;
     int state;
@@ -137,12 +138,12 @@ void aji_game_core(game_core *, char *);
 void aji_running_scene(running_scene *, sfRenderWindow *, char *);
 void aji_enemy_list_scratch(enemy_t *);
 void aji_enemy_types(enemy_types *);
-void aji_enemy_list(enemy_t *, char *);
+void aji_enemy_list(enemy_t *, char *, enemy_types *);
 void aji_enemies_clocks(enemies_clocks *);
-void add_node_enemy(enemy_t *, int);
-void create_enemy_filled_list(enemy_t *, int);
-void create_enemy_empty_list(enemy_t *, int);
-void fill_enemy_texture(enemy_t *, int);
+void add_node_enemy(enemy_t *, int, enemy_types *);
+void create_enemy_filled_list(enemy_t *, int, enemy_types *);
+void create_enemy_empty_list(enemy_t *, int, enemy_types *);
+sfTexture *fill_enemy_texture(int, enemy_types *);
 void fill_rect_bat(sfIntRect *_rect);
 void aji_parallax(parallax *);
 void aji_player(player *);

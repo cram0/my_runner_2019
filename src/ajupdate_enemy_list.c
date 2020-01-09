@@ -15,15 +15,19 @@ void reset_enemies_clocks(enemies_clocks *_clocks)
 
 void aju_enemy_list_pos(enemy_t *_enemy, enemies_clocks *_clocks)
 {
+    // while (_enemy->previous != NULL) {
+    //     _enemy = _enemy->previous;
+    // }
+    printf("Debug before while\n");
     while (_enemy->next != NULL) {
-        if (_enemy->pos->x <= 0.0) {
-            write(1, "LOL", 3);
-            _enemy->pos->x = 500.0;
+        if (_enemy->pos.x <= 0.0) {
+            _enemy->pos.x = 500.0;
         }
-        _enemy->pos->x -= 300 * sfTime_asSeconds(sfClock_getElapsedTime
+        printf("Debug within while\n");
+        _enemy->pos.x -= 300 * sfTime_asSeconds(sfClock_getElapsedTime
         (_clocks->move_clock));
-        sfSprite_setPosition(_enemy->sprite, *_enemy->pos);
-        sfSprite_setTextureRect(_enemy->sprite, *_enemy->text_rect);
+        sfSprite_setPosition(_enemy->sprite, _enemy->pos);
+        // sfSprite_setTextureRect(_enemy->sprite, _enemy->text_rect);
         _enemy = _enemy->next;
     }
 }

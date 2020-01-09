@@ -9,10 +9,12 @@
 
 void ajd_enemy_list(enemy_t *_enemy, sfRenderWindow *_window)
 {
-    while (_enemy->previous != NULL)
-        _enemy = _enemy->previous;
-    while (_enemy->next != NULL) {
+    if (_enemy->next == NULL)
         sfRenderWindow_drawSprite(_window, _enemy->sprite, NULL);
-        _enemy = _enemy->next;
+    else {
+        while (_enemy->next != NULL) {
+            sfRenderWindow_drawSprite(_window, _enemy->sprite, NULL);
+            _enemy = _enemy->next;
+        }
     }
 }
