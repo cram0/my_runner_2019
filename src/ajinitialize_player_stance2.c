@@ -7,8 +7,6 @@
 
 #include "../include/my_runner.h"
 
-static const char PATH_SHEET[] = "img/alucard/alucard_sheet.png";
-
 void aji_player_stance_crouch(stance *_stance)
 {
     _stance->rect = (sfIntRect){0, 266, 45, 51};

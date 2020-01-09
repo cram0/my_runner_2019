@@ -80,8 +80,8 @@ void aju_player_animation_running(player *_player)
 {
 
     if (sfTime_asSeconds(sfClock_getElapsedTime(_player->anim_clock)) > 0.050) {
-        if (_player->stance_anim.running.rect.left == 720 &&
-        _player->stance_anim.running.rect.top == 0 ||
+        if ((_player->stance_anim.running.rect.left == 720 &&
+        _player->stance_anim.running.rect.top == 0) ||
         _player->stance_anim.running.rect.left == 768){
             _player->stance_anim.running.rect.left = 0;
             _player->stance_anim.running.rect.top = 51;

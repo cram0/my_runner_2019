@@ -19,6 +19,7 @@ bool check_map(char *_map)
     map[map_size] = '\0';
     read(fd, map, map_size);
     int map_i = 0;
+    close(fd);
     while (map[map_i]) {
         if (map[map_i] != '_' && map[map_i] != '1' && map[map_i] != '2' && map[map_i] != '3' && map[map_i] != ' ' && map[map_i] != '\n') {
             return (false);
@@ -44,13 +45,20 @@ int check_args(char *arg)
         write(1, "LOLE", 4);
         return (0);
     }
-    else {
+    else
         if (!check_map(arg)) {
             write(1, "Invalid map\n", 13);
             return (1);
         }
-    }
-    run(arg);
+    int fd = open(arg, O_RDONLY);
+    struct stat *fd_stat = malloc(sizeof(struct stat));
+    stat(arg, fd_stat);
+    int map_size = fd_stat->st_size;
+    char map[map_size];
+    map[map_size] = '\0';
+    read(fd, map, map_size);
+    run(map);
+    return(0);
 }
 
 int main(int ac, char **av)

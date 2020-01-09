@@ -11,7 +11,8 @@ void aji_running_scene(running_scene *_running_scene, sfRenderWindow *_window,
 char *map)
 {
     _running_scene->window = _window;
-    aji_enemy_list(&_running_scene->enemies, map);
+    _running_scene->enemies = malloc(sizeof(enemy_t));
+    aji_enemy_list(_running_scene->enemies, map);
     aji_enemies_clocks(&_running_scene->clocks);
     aji_parallax(&_running_scene->parallax);
     aji_player(&_running_scene->player);

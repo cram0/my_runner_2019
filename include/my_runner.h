@@ -112,7 +112,7 @@ typedef struct running_scene {
     sfRenderWindow *window;
     sfEvent event;
     parallax parallax;
-    enemy_t enemies;
+    enemy_t *enemies;
     enemies_clocks clocks;
     player player;
     int state;
@@ -143,6 +143,7 @@ void add_node_enemy(enemy_t *, int);
 void create_enemy_filled_list(enemy_t *, int);
 void create_enemy_empty_list(enemy_t *, int);
 void fill_enemy_texture(enemy_t *, int);
+void fill_rect_bat(sfIntRect *_rect);
 void aji_parallax(parallax *);
 void aji_player(player *);
 void aji_player_stance(player_stance *);
