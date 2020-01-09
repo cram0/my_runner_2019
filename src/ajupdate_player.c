@@ -136,8 +136,8 @@ void aju_player_position_y(player *_player)
         _player->pos.y += _player->dy * dt;
     }
     if (_player->pos.y > 357.0) {
-        if (_player->state != RUNNING) {
-        }
+        // if (_player->state != RUNNING) {
+        // }
         _player->pos.y = 357.0;
         _player->state = RUNNING;
     }

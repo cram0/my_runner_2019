@@ -119,7 +119,19 @@ typedef struct running_scene {
     int state;
 } running_scene ;
 
+typedef struct menu_background {
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfMusic *music;
+    sfIntRect rect;
+} menu_background ;
+
 typedef struct menu_scene {
+    sfRenderWindow *window;
+    sfEvent event;
+    menu_background background;
+    sfSound *sound_onchange;
+    sfSound *sound_onclick;
 
 } menu_scene ;
 
@@ -140,9 +152,9 @@ void aji_enemy_list_scratch(enemy_t *);
 void aji_enemy_types(enemy_types *);
 void aji_enemy_list(enemy_t *, char *, enemy_types *);
 void aji_enemies_clocks(enemies_clocks *);
-void add_node_enemy(enemy_t *, int, enemy_types *);
-void create_enemy_filled_list(enemy_t *, int, enemy_types *);
-void create_enemy_empty_list(enemy_t *, int, enemy_types *);
+void add_node_enemy(enemy_t *, int, enemy_types *, int);
+void add_node_enemy_empty(enemy_t *, int, enemy_types *);
+void add_node_enemy_filled(enemy_t *, int, enemy_types *, int);
 sfTexture *fill_enemy_texture(int, enemy_types *);
 void fill_rect_bat(sfIntRect *_rect);
 void aji_parallax(parallax *);

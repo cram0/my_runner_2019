@@ -15,4 +15,5 @@ void aji_game_core(game_core *_game_core, char *map)
     _game_core->window = window;
     _game_core->game_state = INGAME;
     aji_running_scene(&_game_core->running_scene, _game_core->window, map);
+    aji_menu_scene(&_game_core->menu_scene, _game_core->window);
 }
