@@ -122,22 +122,31 @@ typedef struct running_scene {
 typedef struct menu_background {
     sfSprite *sprite;
     sfTexture *texture;
-    sfMusic *music;
     sfIntRect rect;
+    sfClock *clock;
 } menu_background ;
+
+typedef struct menu_foreground {
+    sfSprite *start_spr;
+    sfTexture *start_text;
+    sfSprite *title_spr;
+    sfTexture *title_text;
+} menu_foreground ;
 
 typedef struct menu_scene {
     sfRenderWindow *window;
     sfEvent event;
+    sfMusic *music;
+    menu_foreground foreground;
     menu_background background;
     sfSound *sound_onchange;
     sfSound *sound_onclick;
-
 } menu_scene ;
 
 typedef struct game_core {
     sfRenderWindow *window;
     int game_state;
+    sfEvent event;
     running_scene running_scene;
     menu_scene menu_scene;
 } game_core ;
@@ -147,6 +156,8 @@ bool check_map(char *);
 void run(char *map);
 
 void aji_game_core(game_core *, char *);
+void aji_menu_scene(menu_scene *, sfRenderWindow *);
+void aji_menu_background(menu_background *);
 void aji_running_scene(running_scene *, sfRenderWindow *, char *);
 void aji_enemy_list_scratch(enemy_t *);
 void aji_enemy_types(enemy_types *);
@@ -180,6 +191,12 @@ void aju_parallax(parallax *);
 void aju_player(player *);
 void aju_player_event(player *);
 void aju_player_position(player *);
+void aju_player_animation(player *);
+void aju_player_animation_idle(player *);
+void aju_player_animation_crouch(player *);
+void aju_player_animation_jumping(player *);
+void aju_player_animation_falling(player *);
+void aju_player_animation_running(player *);
 void aju_first_layer(parallax_layer *, sfClock *);
 void aju_second_layer(parallax_layer *, sfClock *);
 void aju_third_layer(parallax_layer *, sfClock *);

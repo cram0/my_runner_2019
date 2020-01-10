@@ -9,5 +9,7 @@
 
 void aji_menu_scene(menu_scene *_scene, sfRenderWindow *_window)
 {
-    aji_menu_background(_scene->background);
+    _scene->window = _window;
+    aji_menu_background(&_scene->background);
+    aji_menu_foreground(&_scene->foreground);
 }

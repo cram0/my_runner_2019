@@ -13,7 +13,7 @@ void aji_game_core(game_core *_game_core, char *map)
     "Alucard's Journey", sfClose, NULL);
     sfRenderWindow_setFramerateLimit(window, 120);
     _game_core->window = window;
-    _game_core->game_state = INGAME;
-    aji_running_scene(&_game_core->running_scene, _game_core->window, map);
+    _game_core->game_state = MENU;
     aji_menu_scene(&_game_core->menu_scene, _game_core->window);
+    aji_running_scene(&_game_core->running_scene, _game_core->window, map);
 }
