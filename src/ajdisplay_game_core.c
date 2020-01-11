@@ -9,11 +9,9 @@
 
 void ajd_game_core(game_core *_game_core, sfRenderWindow *_window)
 {
-    switch (_game_core->game_state) {
-        case MENU: ajd_menu_scene(&_game_core->menu_scene);
-            break;
-        case INGAME: ajd_running_scene(&_game_core->running_scene);
-            break;
-    }
+    if (_game_core->game_state == INGAME)
+        ajd_running_scene(&_game_core->running_scene);
+    if (_game_core->game_state == MENU)
+        ajd_menu_scene(&_game_core->menu_scene);
     sfRenderWindow_display(_window);
 }

@@ -10,17 +10,13 @@
 void aju_player_animation(player *_player)
 {
     switch (_player->state) {
-    case CROUCH:
-        aju_player_animation_crouch(_player);
-        break;
-    case JUMPING:
-        aju_player_animation_jumping(_player);
-        break;
-    case FALLING:
-        aju_player_animation_falling(_player);
-        break;
-    case RUNNING:
-        aju_player_animation_running(_player);
-        break;
+        case CROUCH: aju_player_animation_crouch(_player);
+            break;
+        case JUMPING: aju_player_animation_jumping(_player);
+            break;
+        case FALLING: aju_player_animation_falling(_player);
+            break;
+        case RUNNING: aju_player_animation_running(_player);
+            break;
     }
 }

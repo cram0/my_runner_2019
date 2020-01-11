@@ -13,10 +13,9 @@ void aju_game_core(game_core *_game_core)
         if (_game_core->event.type == sfEvtClosed)
             sfRenderWindow_close(_game_core->window);
     }
-    switch (_game_core->game_state) {
-    case MENU: aju_menu_scene(&_game_core->menu_scene);
-        break;
-    case INGAME: aju_running_scene(&_game_core->running_scene);
-        break;
+    if (_game_core->game_state == INGAME) {
+        aju_running_scene(&_game_core->running_scene);
     }
+    if (_game_core->game_state == MENU)
+        aju_menu_scene(&_game_core->menu_scene);
 }
