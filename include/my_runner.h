@@ -63,6 +63,7 @@ typedef struct player {
     sfSound *sound;
     sfVector2f pos;
     player_stance stance_anim;
+    sfIntRect hitbox;
     float dy;
     float speed;
     int state;
@@ -112,6 +113,7 @@ typedef struct enemies_clocks {
 
 typedef struct running_scene {
     sfRenderWindow *window;
+    sfMusic *music;
     sfEvent event;
     parallax parallax;
     enemy_t *enemies;
@@ -166,6 +168,7 @@ void aji_game_core(game_core *, char *);
 void aji_menu_scene(menu_scene *, sfRenderWindow *);
 void aji_menu_background(menu_background *);
 void aji_running_scene(running_scene *, sfRenderWindow *, char *);
+void aji_running_scene_music(running_scene *);
 void aji_enemy_list_scratch(enemy_t *);
 void aji_enemy_types_text(enemy_types_text *);
 void aji_enemy_list(enemy_t *, char *, enemy_types_text *);
@@ -221,6 +224,11 @@ void aju_sixth_layer(parallax_layer *, sfClock *);
 void aju_enemy_list(running_scene *);
 void aju_enemy_list_pos(enemy_t *, enemies_clocks *);
 void aju_enemy_list_anims(enemy_t *);
+void aju_enemy_list_hitboxes(enemy_t *);
+void aju_enemy_hitbox(enemy_t *);
+void aju_bat_hitbox(enemy_t *);
+void aju_ww_hitbox(enemy_t *);
+void aju_panther_hitbox(enemy_t *);
 void aju_bat_anim(enemy_t *);
 void aju_ww_anim(enemy_t *);
 void aju_panth_anim(enemy_t *);

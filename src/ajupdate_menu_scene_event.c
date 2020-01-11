@@ -9,7 +9,11 @@
 
 void aju_menu_scene_event(menu_scene *_scene)
 {
+    if (*_scene->game_state == MENU) {
+        sfMusic_play(_scene->music);
+    }
     if (sfKeyboard_isKeyPressed(sfKeyEnter)) {
+        sfMusic_stop(_scene->music);
         sfSound_play(_scene->sound_start);
         *_scene->game_state = INGAME;
     }

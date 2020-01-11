@@ -9,6 +9,11 @@
 
 void aju_running_scene_event(running_scene *_scene)
 {
-    if(sfKeyboard_isKeyPressed(sfKeyEscape))
+    if (*_scene->game_state == INGAME) {
+        sfMusic_play(_scene->music);
+    }
+    if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
+        sfMusic_stop(_scene->music);
         sfRenderWindow_close(_scene->window);
+    }
 }

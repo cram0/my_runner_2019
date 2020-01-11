@@ -17,4 +17,5 @@ char *map)
     aji_enemies_clocks(&_running_scene->clocks);
     aji_parallax(&_running_scene->parallax);
     aji_player(&_running_scene->player);
+    aji_running_scene_music(_running_scene);
 }

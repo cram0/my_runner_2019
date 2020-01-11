@@ -15,6 +15,7 @@ void reset_enemies_clocks(enemies_clocks *_clocks)
 void aju_enemy_list(running_scene *_scene)
 {
     aju_enemy_list_pos(_scene->enemies, &_scene->clocks);
+    aju_enemy_list_hitboxes(_scene->enemies);
     aju_enemy_list_anims(_scene->enemies);
     reset_enemies_clocks(&_scene->clocks);
 }
