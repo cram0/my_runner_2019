@@ -7,7 +7,7 @@
 
 #include "../include/my_runner.h"
 
-void aji_enemy_types(enemy_types *_enemy_types)
+void aji_enemy_types_text(enemy_types_text *_enemy_types)
 {
     _enemy_types->bat_texture = sfTexture_createFromFile(
     "img/monsters/bat.png", NULL);

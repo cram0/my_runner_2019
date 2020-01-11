@@ -87,11 +87,11 @@ typedef struct parallax {
     parallax_layer sixth_layer;
 } parallax ;
 
-typedef struct enemy_types {
+typedef struct enemy_types_text {
     sfTexture *bat_texture;
     sfTexture *panther_texture;
     sfTexture *werewolf_texture;
-} enemy_types ;
+} enemy_types_text ;
 
 typedef struct enemy_t {
     sfSprite *sprite;
@@ -99,6 +99,8 @@ typedef struct enemy_t {
     sfVector2f pos;
     sfIntRect text_rect;
     sfIntRect hitbox;
+    sfClock *anim_clock;
+    int type;
     struct enemy_t *previous;
     struct enemy_t *next;
 } enemy_t ;
@@ -113,7 +115,7 @@ typedef struct running_scene {
     sfEvent event;
     parallax parallax;
     enemy_t *enemies;
-    enemy_types enemy_types;
+    enemy_types_text enemy_types_text;
     enemies_clocks clocks;
     player player;
     int *game_state;
@@ -131,6 +133,8 @@ typedef struct menu_foreground {
     sfTexture *start_text;
     sfSprite *title_spr;
     sfTexture *title_text;
+    sfClock *start_clock;
+    bool start_show;
 } menu_foreground ;
 
 typedef struct menu_scene {
@@ -163,18 +167,18 @@ void aji_menu_scene(menu_scene *, sfRenderWindow *);
 void aji_menu_background(menu_background *);
 void aji_running_scene(running_scene *, sfRenderWindow *, char *);
 void aji_enemy_list_scratch(enemy_t *);
-void aji_enemy_types(enemy_types *);
-void aji_enemy_list(enemy_t *, char *, enemy_types *);
+void aji_enemy_types_text(enemy_types_text *);
+void aji_enemy_list(enemy_t *, char *, enemy_types_text *);
 void aji_enemies_clocks(enemies_clocks *);
 void aji_menu_foreground(menu_foreground *);
-void add_node_enemy(enemy_t *, int, enemy_types *, int);
-void add_node_enemy_empty(enemy_t *, int, enemy_types *);
-void add_node_enemy_filled(enemy_t *, int, enemy_types *, int);
-sfTexture *fill_enemy_texture(int, enemy_types *);
+void add_node_enemy(enemy_t *, int, enemy_types_text *, int);
+void add_node_enemy_empty(enemy_t *, int, enemy_types_text *);
+void add_node_enemy_filled(enemy_t *, int, enemy_types_text *, int);
+sfTexture *fill_enemy_texture(int, enemy_types_text *);
 sfIntRect fill_enemy_rect(int);
 sfVector2f fill_enemy_pos(int);
 sfIntRect fill_enemy_hitbox(int);
-void fill_rect_bat(sfIntRect *_rect);
+int fill_enemy_type(int);
 void aji_parallax(parallax *);
 void aji_player(player *);
 void aji_player_stance(player_stance *);
@@ -216,6 +220,10 @@ void aju_fifth_layer(parallax_layer *, sfClock *);
 void aju_sixth_layer(parallax_layer *, sfClock *);
 void aju_enemy_list(running_scene *);
 void aju_enemy_list_pos(enemy_t *, enemies_clocks *);
+void aju_enemy_list_anims(enemy_t *);
+void aju_bat_anim(enemy_t *);
+void aju_ww_anim(enemy_t *);
+void aju_panth_anim(enemy_t *);
 void reset_enemies_clocks(enemies_clocks *);
 
 void ajd_game_core(game_core *, sfRenderWindow *);

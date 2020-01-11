@@ -9,5 +9,6 @@
 
 void aju_running_scene_event(running_scene *_scene)
 {
-    
+    if(sfKeyboard_isKeyPressed(sfKeyEscape))
+        sfRenderWindow_close(_scene->window);
 }
