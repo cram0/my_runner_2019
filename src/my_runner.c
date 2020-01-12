@@ -7,6 +7,25 @@
 
 #include "../include/my_runner.h"
 
+void print_usage(void)
+{
+    write(1, "\nHi !\n\nWelcome to Alucard's Journey, Where monsters ", 53);
+    write(1, "are tormenting Alucard back ", 29);
+    write(1, "from the castle, help him leave the countryside !\n\n", 52);
+    write(1, "INSTRUCTIONS :\n", 16);
+    write(1, "Press ENTER to start the game.\n", 32);
+    write(1, "Press ESCAPE to exit at any point within the game.\n", 52);
+    write(1, "Press SPACE to jump.\nPress S to crouch.\n", 41);
+    write(1, "Please note : You can activate debug mode (which, i believe", 60);
+    write(1, ", will help you deal with the difficulty of the ", 49);
+    write(1, "jumps' precision), by pressing F12.\n\n", 38);
+    write(1, "PS : You may want to press ENTER quickly when you launch ", 58);
+    write(1, "the program, as sometimes, hitboxes are weirdly initialized, ",
+    62);
+    write(1, "and cause the player to hit one of them right at the start.\n", 61);
+    write(1, "((The dev is actively working trying to fix it, pls dont hit me))\n\n", 68);
+}
+
 bool check_map(char *_map)
 {
     int fd = open(_map, O_RDONLY);
@@ -42,7 +61,7 @@ void run(char *map)
 int check_args(char *arg)
 {
     if (arg[0] == '-' && arg[1] == 'h') {
-        write(1, "LOLE", 4);
+        print_usage();
         return (0);
     }
     else

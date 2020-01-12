@@ -67,7 +67,7 @@ void aji_enemy_list_scratch(enemy_t *_enemies)
 void aji_enemy_list(enemy_t *_enemies, char *map, enemy_types_text *_enemy_type)
 {
     aji_enemy_list_scratch(_enemies);
-    int map_i = 0, offset = 1500;
+    int map_i = 0, offset = 2500;
     while (map[map_i++])
         switch (map[map_i]) {
             case '1': offset += 100;
@@ -79,7 +79,7 @@ void aji_enemy_list(enemy_t *_enemies, char *map, enemy_types_text *_enemy_type)
             case '3': offset += 1000;
                 add_node_enemy(_enemies, PANTHER, _enemy_type, offset);
                 break;
-            case ' ': offset += 100;
+            case ' ': offset += 500;
                 break;
             default:
                 break;

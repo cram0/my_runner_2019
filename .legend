@@ -1,0 +1,25 @@
+_______________________________________________________________________________
+           1    2   2 1     1   3 2   1    3   2  1   2  3  1 2 3   1 2  3 1 2 3
+1   2   3 1 2 3     1   3     2     1      3      2     1      2     3
+_______________________________________________________________________________
+
+Map legend :
+
+1 : BAT
+2 : WEREWOLF
+3 : PANTHER
+
+
+Bats are kinda slow-paced, but requires you to either (precisely) jump or crouch to dodge them.
+Werewolfs are medium-paced, requires you to jump over them.
+Panthers are fast-paced, requires you to jump in advance to let them run under you.
+
+One character (and space)'s separation between eachother roughly equals to half the size of the window.
+I highly suggest that you put a little bit of space right at the start :).
+
+There you go, you got all the ingredients to make a super cool map !
+
+
+
+
+Also, this map is hard, but doable ;).
