@@ -10,7 +10,7 @@
 void aju_bat_hitbox(enemy_t *_bat)
 {
     _bat->hitbox.left = _bat->pos.x;
-    _bat->hitbox.top = _bat->pos.y;
+    _bat->hitbox.top = _bat->pos.y + 25;
 }
 
 void aju_ww_hitbox(enemy_t *_ww)
