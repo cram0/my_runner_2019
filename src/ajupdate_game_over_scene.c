@@ -18,6 +18,8 @@ void aju_game_over_scene(game_over_scene *_scene)
     }
     if (sfMusic_getStatus(_scene->music) == sfStopped)
         sfMusic_play(_scene->music);
-    if (sfKeyboard_isKeyPressed(sfKeyEscape))
+    if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
+        sfMusic_stop(_scene->music);
         sfRenderWindow_close(_scene->window);
+    }
 }

@@ -21,12 +21,14 @@ void print_usage(void)
     write(1, ", will help you deal with the difficulty of the ", 49);
     write(1, "jumps' precision), by pressing F12.\n\n", 38);
     write(1, "PS : You may want to press ENTER quickly when you launch ", 58);
-    write(1, "the program, as sometimes, hitboxes are weirdly initialized, ",
-    62);
+    write(1, "the program, as sometimes, ", 28);
+    write(1, "enemy hitboxes are weirdly initialized, ", 41);
     write(1, "and cause the player to hit one of them right at the start.\n",
     61);
     write(1, "((The dev is actively working trying to fix it", 47);
-    write(1, ", pls dont hit me))\n\n", 22);
+    write(1, ", pls dont hit me))\n", 21);
+    write(1, "Also NO, the window is NOT resizable, it is by game ", 53);
+    write(1, "design choice.\n\n", 17);
 }
 
 bool check_map(char *_map)
@@ -43,12 +45,12 @@ bool check_map(char *_map)
     int map_i = 0;
     close(fd);
     while (map[map_i]) {
-        if (map[map_i] != '_' && map[map_i] != '1' && map[map_i] != '2' && map[map_i] != '3' && map[map_i] != ' ' && map[map_i] != '\n') {
+        if (map[map_i] != '_' && map[map_i] != '1' && map[map_i] != '2' && map
+        [map_i] != '3' && map[map_i] != ' ' && map[map_i] != '\n')
             return (false);
-        }
         map_i++;
     }
-    return(true);
+    return (true);
 }
 
 void run(char *map)
@@ -82,7 +84,7 @@ int check_args(char *arg)
     read(fd, map, map_size);
     map[map_size] = '\0';
     run(map);
-    return(0);
+    return (0);
 }
 
 int main(int ac, char **av)
