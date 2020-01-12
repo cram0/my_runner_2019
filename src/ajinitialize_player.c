@@ -18,7 +18,8 @@ void aji_player(player *_player)
     _player->pos.y = 357;
     _player->state = IDLE;
     _player->dy = 0;
-    _player->texture = sfTexture_createFromFile("img/alucard/alucard_sheet.png", NULL);
+    _player->texture = sfTexture_createFromFile("img/alucard/alucard_sheet.png",
+    NULL);
     sfSprite_setTexture(_player->sprite, _player->texture, sfTrue);
     sfSprite_setTextureRect(_player->sprite, _player->stance_anim.idling.rect);
 }

@@ -10,7 +10,8 @@
 void aju_menu_scene_event(menu_scene *_scene)
 {
     if (*_scene->game_state == MENU) {
-        sfMusic_play(_scene->music);
+        if (sfMusic_getStatus(_scene->music) != sfPlaying)
+            sfMusic_play(_scene->music);
     }
     if (sfKeyboard_isKeyPressed(sfKeyEnter)) {
         sfMusic_stop(_scene->music);

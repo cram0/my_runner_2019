@@ -50,13 +50,15 @@ int check_args(char *arg)
             write(1, "Invalid map\n", 13);
             return (1);
         }
-    int fd = open(arg, O_RDONLY);
-    struct stat *fd_stat = malloc(sizeof(struct stat));
-    stat(arg, fd_stat);
-    int map_size = fd_stat->st_size;
+    int fd = open(arg, O_RDONLY), map_size = 0;
+    char test;
+    while (read(fd, &test, 1) > 0)
+        map_size++;
+    close(fd);
+    fd = open(arg, O_RDONLY);
     char map[map_size];
-    map[map_size] = '\0';
     read(fd, map, map_size);
+    map[map_size] = '\0';
     run(map);
     return(0);
 }

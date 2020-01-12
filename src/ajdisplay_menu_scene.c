@@ -10,6 +10,8 @@
 void ajd_menu_scene(menu_scene *_scene)
 {
     sfRenderWindow_drawSprite(_scene->window, _scene->background.sprite, NULL);
-    sfRenderWindow_drawSprite(_scene->window, _scene->foreground.start_spr, NULL);
-    sfRenderWindow_drawSprite(_scene->window, _scene->foreground.title_spr, NULL);
+    sfRenderWindow_drawSprite(_scene->window, _scene->foreground.start_spr,
+    NULL);
+    sfRenderWindow_drawSprite(_scene->window, _scene->foreground.title_spr,
+    NULL);
 }

@@ -10,9 +10,11 @@
 void aji_menu_foreground(menu_foreground *_fg)
 {
     _fg->start_spr = sfSprite_create();
-    _fg->start_text = sfTexture_createFromFile("img/background/start_button.png", NULL);
+    _fg->start_text = sfTexture_createFromFile(
+        "img/background/start_button.png", NULL);
     _fg->title_spr = sfSprite_create();
-    _fg->title_text = sfTexture_createFromFile("img/background/title.png", NULL);
+    _fg->title_text = sfTexture_createFromFile(
+        "img/background/title.png", NULL);
     _fg->start_clock = sfClock_create();
     _fg->start_show = true;
     sfSprite_setTexture(_fg->start_spr, _fg->start_text, sfTrue);

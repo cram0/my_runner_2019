@@ -120,6 +120,7 @@ typedef struct running_scene {
     enemy_types_text enemy_types_text;
     enemies_clocks clocks;
     player player;
+    bool debug;
     int *game_state;
 } running_scene ;
 
@@ -166,6 +167,7 @@ void run(char *map);
 
 void aji_game_core(game_core *, char *);
 void aji_menu_scene(menu_scene *, sfRenderWindow *);
+void aji_menu_scene_music(menu_scene *);
 void aji_menu_background(menu_background *);
 void aji_running_scene(running_scene *, sfRenderWindow *, char *);
 void aji_running_scene_music(running_scene *);
@@ -232,6 +234,7 @@ void aju_panther_hitbox(enemy_t *);
 void aju_bat_anim(enemy_t *);
 void aju_ww_anim(enemy_t *);
 void aju_panth_anim(enemy_t *);
+void aju_hitbox_collision(running_scene);
 void reset_enemies_clocks(enemies_clocks *);
 
 void ajd_game_core(game_core *, sfRenderWindow *);
@@ -239,5 +242,6 @@ void ajd_running_scene(running_scene *);
 void ajd_menu_scene(menu_scene *);
 void ajd_parallax(parallax *, sfRenderWindow *);
 void ajd_player(player *, sfRenderWindow *);
-void ajd_enemy_list(enemy_t *, sfRenderWindow *);
+void ajd_enemy_list(enemy_t *, sfRenderWindow *, bool);
+void ajd_dbg_player_hitbox(running_scene *);
 #endif

@@ -11,15 +11,18 @@ void aju_enemy_pos(enemy_t *_enemy, enemies_clocks *_clocks)
 {
     switch (_enemy->type) {
         case BAT:
-            _enemy->pos.x -= 500 * sfTime_asSeconds(sfClock_getElapsedTime(_clocks->move_clock));
+            _enemy->pos.x -= 500 * sfTime_asSeconds(sfClock_getElapsedTime
+            (_clocks->move_clock));
             sfSprite_setPosition(_enemy->sprite, _enemy->pos);
             break;
         case WEREWOLF:
-            _enemy->pos.x -= 400 * sfTime_asSeconds(sfClock_getElapsedTime(_clocks->move_clock));
+            _enemy->pos.x -= 400 * sfTime_asSeconds(sfClock_getElapsedTime
+            (_clocks->move_clock));
             sfSprite_setPosition(_enemy->sprite, _enemy->pos);
             break;
         case PANTHER:
-            _enemy->pos.x -= 600 * sfTime_asSeconds(sfClock_getElapsedTime(_clocks->move_clock));
+            _enemy->pos.x -= 600 * sfTime_asSeconds(sfClock_getElapsedTime
+            (_clocks->move_clock));
             sfSprite_setPosition(_enemy->sprite, _enemy->pos);
             break;
     }
