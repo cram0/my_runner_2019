@@ -12,9 +12,9 @@ void print_usage(void)
     write(1, "\nHi !\n\nWelcome to Alucard's Journey, Where monsters ", 53);
     write(1, "are tormenting Alucard back ", 29);
     write(1, "from the castle, help him leave the countryside !\n\n", 52);
-    write(1, "USAGE :\n./my_runner MAPS_NAME\n\n", 32);
-    write(1, "INSTRUCTIONS :\n", 16);
-    write(1, "Press ENTER to start the game.\n", 32);
+    write(1, "USAGE :\n./my_runner MAPS_NAME\n", 32);
+    write(1, "Check the '.legend' file to make your own map.\n\n", 49);
+    write(1, "INSTRUCTIONS :\nPress ENTER to start the game.\n", 47);
     write(1, "Press ESCAPE to exit at any point within the game.\n", 52);
     write(1, "Press SPACE to jump.\nPress S to crouch.\n", 41);
     write(1, "Please note : You can activate debug mode (which, i believe", 60);
