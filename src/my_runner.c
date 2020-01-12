@@ -33,11 +33,10 @@ void print_usage(void)
 
 bool check_map(char *_map)
 {
-    int fd = open(_map, O_RDONLY);
+    int fd = open(_map, O_RDONLY), map_size = 0;
         if (fd < 0)
             return (false);
     char test;
-    int map_size = 0;
     while (read(fd, &test, 1) > 0)
         map_size++;
     close(fd);
