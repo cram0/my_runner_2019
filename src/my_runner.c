@@ -36,14 +36,17 @@ bool check_map(char *_map)
     int fd = open(_map, O_RDONLY);
         if (fd < 0)
             return (false);
-    struct stat *fd_stat = malloc(sizeof(struct stat));
-    stat(_map, fd_stat);
-    int map_size = fd_stat->st_size;
+    char test;
+    int map_size = 0;
+    while (read(fd, &test, 1) > 0)
+        map_size++;
+    close(fd);
+    open(_map, O_RDONLY);
     char map[map_size];
     map[map_size] = '\0';
     read(fd, map, map_size);
-    int map_i = 0;
     close(fd);
+    int map_i = 0;
     while (map[map_i]) {
         if (map[map_i] != '_' && map[map_i] != '1' && map[map_i] != '2' && map
         [map_i] != '3' && map[map_i] != ' ' && map[map_i] != '\n')
