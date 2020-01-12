@@ -38,7 +38,8 @@ enum enemy_type {
 
 enum game_state {
     INGAME,
-    MENU
+    MENU,
+    GAMEOVER
 } ;
 
 typedef struct stance {
@@ -153,12 +154,23 @@ typedef struct menu_scene {
     sfSoundBuffer *sound_start_buf;
 } menu_scene ;
 
+typedef struct game_over_scene {
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfMusic *music;
+    sfVector2f pos;
+    sfRenderWindow *window;
+    sfIntRect text_rect;
+    sfClock *clock;
+} game_over_scene ;
+
 typedef struct game_core {
     sfRenderWindow *window;
     int game_state;
     sfEvent event;
     running_scene running_scene;
     menu_scene menu_scene;
+    game_over_scene game_over_scene;
 } game_core ;
 
 int check_args(char *);
@@ -198,6 +210,7 @@ void aji_third_layer(parallax_layer *);
 void aji_fourth_layer(parallax_layer *);
 void aji_fifth_layer(parallax_layer *);
 void aji_sixth_layer(parallax_layer *);
+void aji_game_over_scene(game_over_scene *, sfRenderWindow *);
 
 
 void aju_game_core(game_core *);
@@ -236,6 +249,7 @@ void aju_ww_anim(enemy_t *);
 void aju_panth_anim(enemy_t *);
 void aju_hitbox_collision(running_scene);
 void reset_enemies_clocks(enemies_clocks *);
+void aju_game_over_scene(game_over_scene *);
 
 void ajd_game_core(game_core *, sfRenderWindow *);
 void ajd_running_scene(running_scene *);
@@ -244,4 +258,5 @@ void ajd_parallax(parallax *, sfRenderWindow *);
 void ajd_player(player *, sfRenderWindow *);
 void ajd_enemy_list(enemy_t *, sfRenderWindow *, bool);
 void ajd_dbg_player_hitbox(running_scene *);
+void ajd_game_over_scene(game_over_scene *);
 #endif

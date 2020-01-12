@@ -13,5 +13,7 @@ void ajd_game_core(game_core *_game_core, sfRenderWindow *_window)
         ajd_running_scene(&_game_core->running_scene);
     if (_game_core->game_state == MENU)
         ajd_menu_scene(&_game_core->menu_scene);
+    if (_game_core->game_state == GAMEOVER)
+        ajd_game_over_scene(&_game_core->game_over_scene);
     sfRenderWindow_display(_window);
 }
