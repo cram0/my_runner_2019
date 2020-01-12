@@ -91,6 +91,8 @@ int check_args(char *arg)
 
 int main(int ac, char **av)
 {
+    if (ac == 1 || ac >= 3)
+        write(1, "Please relaunch the program with '-h'\n", 39);
     if (ac == 2)
         check_args(av[1]);
     return (0);

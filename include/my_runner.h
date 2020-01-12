@@ -18,7 +18,6 @@
 #include <time.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <sys/stat.h>
 #include <stdio.h>
 
 enum player_state {
