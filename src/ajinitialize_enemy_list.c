@@ -70,13 +70,13 @@ void aji_enemy_list(enemy_t *_enemies, char *map, enemy_types_text *_enemy_type)
     int map_i = 0, offset = 1500;
     while (map[map_i++])
         switch (map[map_i]) {
-            case '1': offset += 916;
+            case '1': offset += 100;
                 add_node_enemy(_enemies, BAT, _enemy_type, offset);
                 break;
-            case '2': offset += 930;
+            case '2': offset += 600;
                 add_node_enemy(_enemies, WEREWOLF, _enemy_type, offset);
                 break;
-            case '3': offset += 948;
+            case '3': offset += 1000;
                 add_node_enemy(_enemies, PANTHER, _enemy_type, offset);
                 break;
             case ' ': offset += 100;
