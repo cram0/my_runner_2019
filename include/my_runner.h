@@ -175,7 +175,6 @@ typedef struct game_core {
 int check_args(char *);
 bool check_map(char *);
 void run(char *map);
-
 void aji_game_core(game_core *, char *);
 void aji_menu_scene(menu_scene *, sfRenderWindow *);
 void aji_menu_scene_music(menu_scene *);
@@ -210,8 +209,6 @@ void aji_fourth_layer(parallax_layer *);
 void aji_fifth_layer(parallax_layer *);
 void aji_sixth_layer(parallax_layer *);
 void aji_game_over_scene(game_over_scene *, sfRenderWindow *);
-
-
 void aju_game_core(game_core *);
 void aju_menu_scene(menu_scene *);
 void aju_menu_scene_event(menu_scene *);
@@ -249,7 +246,6 @@ void aju_panth_anim(enemy_t *);
 void aju_hitbox_collision(running_scene);
 void reset_enemies_clocks(enemies_clocks *);
 void aju_game_over_scene(game_over_scene *);
-
 void ajd_game_core(game_core *, sfRenderWindow *);
 void ajd_running_scene(running_scene *);
 void ajd_menu_scene(menu_scene *);
