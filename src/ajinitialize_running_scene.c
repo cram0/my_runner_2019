@@ -13,6 +13,7 @@ char *map)
     _running_scene->window = _window;
     _running_scene->enemies = malloc(sizeof(enemy_t));
     _running_scene->debug = false;
+    _running_scene->clock = sfClock_create();
     aji_enemy_types_text(&_running_scene->enemy_types_text);
     aji_enemy_list(_running_scene->enemies, map, &
     _running_scene->enemy_types_text);
@@ -20,4 +21,5 @@ char *map)
     aji_parallax(&_running_scene->parallax);
     aji_player(&_running_scene->player);
     aji_running_scene_music(_running_scene);
+    aji_running_scene_score(_running_scene);
 }

@@ -113,8 +113,11 @@ typedef struct enemies_clocks {
 
 typedef struct running_scene {
     sfRenderWindow *window;
+    sfClock *clock;
     sfMusic *music;
     sfEvent event;
+    sfText *score_text;
+    int score;
     parallax parallax;
     enemy_t *enemies;
     enemy_types_text enemy_types_text;
@@ -172,6 +175,8 @@ typedef struct game_core {
     game_over_scene game_over_scene;
 } game_core ;
 
+// INIT
+
 int check_args(char *);
 bool check_map(char *);
 void run(char *map);
@@ -181,6 +186,7 @@ void aji_menu_scene_music(menu_scene *);
 void aji_menu_background(menu_background *);
 void aji_running_scene(running_scene *, sfRenderWindow *, char *);
 void aji_running_scene_music(running_scene *);
+void aji_running_scene_score(running_scene *);
 void aji_enemy_list_scratch(enemy_t *);
 void aji_enemy_types_text(enemy_types_text *);
 void aji_enemy_list(enemy_t *, char *, enemy_types_text *);
@@ -209,6 +215,9 @@ void aji_fourth_layer(parallax_layer *);
 void aji_fifth_layer(parallax_layer *);
 void aji_sixth_layer(parallax_layer *);
 void aji_game_over_scene(game_over_scene *, sfRenderWindow *);
+
+// UPDATE
+
 void aju_game_core(game_core *);
 void aju_menu_scene(menu_scene *);
 void aju_menu_scene_event(menu_scene *);
@@ -246,12 +255,16 @@ void aju_panth_anim(enemy_t *);
 void aju_hitbox_collision(running_scene);
 void reset_enemies_clocks(enemies_clocks *);
 void aju_game_over_scene(game_over_scene *);
+
+// DISPLAY
+
 void ajd_game_core(game_core *, sfRenderWindow *);
 void ajd_running_scene(running_scene *);
 void ajd_menu_scene(menu_scene *);
 void ajd_parallax(parallax *, sfRenderWindow *);
 void ajd_player(player *, sfRenderWindow *);
 void ajd_enemy_list(enemy_t *, sfRenderWindow *, bool);
+void ajd_score(running_scene *);
 void ajd_dbg_player_hitbox(running_scene *);
 void ajd_game_over_scene(game_over_scene *);
 #endif
