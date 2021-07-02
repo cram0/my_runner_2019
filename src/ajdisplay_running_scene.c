@@ -7,11 +7,6 @@
 
 #include "../include/my_runner.h"
 
-void ajd_score(running_scene *_running_scene)
-{
-    sfRenderWindow_drawText(_running_scene->window, _running_scene->score_text, NULL);
-}
-
 void ajd_running_scene(running_scene *_running_scene)
 {
     ajd_parallax(&_running_scene->parallax, _running_scene->window);

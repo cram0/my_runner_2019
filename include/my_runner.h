@@ -268,4 +268,5 @@ void ajd_enemy_list(enemy_t *, sfRenderWindow *, bool);
 void ajd_score(running_scene *);
 void ajd_dbg_player_hitbox(running_scene *);
 void ajd_game_over_scene(game_over_scene *);
+void ajd_score(running_scene *);
 #endif
