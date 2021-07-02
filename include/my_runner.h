@@ -255,6 +255,7 @@ void aju_panth_anim(enemy_t *);
 void aju_hitbox_collision(running_scene);
 void reset_enemies_clocks(enemies_clocks *);
 void aju_game_over_scene(game_over_scene *);
+void aju_score(running_scene *);
 
 // DISPLAY
 
