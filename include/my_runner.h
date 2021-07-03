@@ -229,6 +229,7 @@ void aji_fourth_layer(parallax_layer *);
 void aji_fifth_layer(parallax_layer *);
 void aji_sixth_layer(parallax_layer *);
 void aji_game_over_scene(game_over_scene *, sfRenderWindow *);
+void aji_thunder(running_scene *);
 
 // UPDATE
 

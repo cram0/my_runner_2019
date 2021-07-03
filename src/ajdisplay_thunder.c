@@ -13,7 +13,7 @@ void ajd_thunder(running_scene *_running_scene)
 
     if (thunder->is_detonating) {
         sfRenderWindow_drawSprite(_running_scene->window, thunder->sprite, NULL);
-        if (sfTime_asMilliseconds(sfClock_getElapsedTime(thunder->thunder_clock)) >= 500) {
+        if (sfTime_asMilliseconds(sfClock_getElapsedTime(thunder->thunder_clock)) >= 75) {
             thunder->is_detonating = false;
             sfClock_restart(thunder->thunder_clock);
         }
