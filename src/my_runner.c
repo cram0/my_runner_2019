@@ -58,6 +58,7 @@ bool check_map(char *_map)
 void run(char *map)
 {
     game_core game_core;
+    srand(time(NULL));
     aji_game_core(&game_core, map);
     while (sfRenderWindow_isOpen(game_core.window)) {
         aju_game_core(&game_core);

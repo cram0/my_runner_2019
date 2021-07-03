@@ -11,5 +11,5 @@ void aji_running_scene_music(running_scene *_scene)
 {
     _scene->music = sfMusic_createFromFile("music/crystal_teardrops.ogg");
     sfMusic_setLoop(_scene->music, sfTrue);
-    sfMusic_setVolume(_scene->music, 50.0);
+    sfMusic_setVolume(_scene->music, 25.0);
 }

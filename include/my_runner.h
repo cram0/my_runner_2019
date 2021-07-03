@@ -88,6 +88,17 @@ typedef struct parallax {
     parallax_layer sixth_layer;
 } parallax ;
 
+typedef struct thunder {
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfClock *thunder_clock;
+    sfClock *cooldown_clock;
+    sfSound *sound;
+    sfSoundBuffer *sound_buffer;
+    int time_till_next_thunder;
+    bool is_detonating;
+} thunder_t ;
+
 typedef struct enemy_types_text {
     sfTexture *bat_texture;
     sfTexture *panther_texture;
@@ -119,6 +130,7 @@ typedef struct running_scene {
     sfText *score_text;
     int score;
     parallax parallax;
+    thunder_t thunder;
     enemy_t *enemies;
     enemy_types_text enemy_types_text;
     enemies_clocks clocks;
@@ -262,11 +274,17 @@ void aju_score(running_scene *);
 void ajd_game_core(game_core *, sfRenderWindow *);
 void ajd_running_scene(running_scene *);
 void ajd_menu_scene(menu_scene *);
-void ajd_parallax(parallax *, sfRenderWindow *);
+void ajd_parallax_thunder(running_scene *);
 void ajd_player(player *, sfRenderWindow *);
 void ajd_enemy_list(enemy_t *, sfRenderWindow *, bool);
 void ajd_score(running_scene *);
 void ajd_dbg_player_hitbox(running_scene *);
 void ajd_game_over_scene(game_over_scene *);
 void ajd_score(running_scene *);
+void ajd_thunder(running_scene *);
+
+// UTILS
+
+int get_random_number(int, int);
+
 #endif
