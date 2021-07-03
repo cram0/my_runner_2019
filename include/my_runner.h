@@ -88,6 +88,7 @@ typedef struct parallax {
     parallax_layer fourth_layer;
     parallax_layer fifth_layer;
     parallax_layer sixth_layer;
+    parallax_layer seventh_layer;
 } parallax ;
 
 typedef struct thunder {
@@ -228,6 +229,7 @@ void aji_third_layer(parallax_layer *);
 void aji_fourth_layer(parallax_layer *);
 void aji_fifth_layer(parallax_layer *);
 void aji_sixth_layer(parallax_layer *);
+void aji_seventh_layer(parallax_layer *);
 void aji_game_over_scene(game_over_scene *, sfRenderWindow *);
 void aji_thunder(running_scene *);
 
@@ -256,6 +258,7 @@ void aju_third_layer(parallax_layer *, sfClock *);
 void aju_fourth_layer(parallax_layer *, sfClock *);
 void aju_fifth_layer(parallax_layer *, sfClock *);
 void aju_sixth_layer(parallax_layer *, sfClock *);
+void aju_seventh_layer(parallax_layer *, sfClock *);
 void aju_enemy_list(running_scene *);
 void aju_enemy_list_pos(enemy_t *, enemies_clocks *);
 void aju_enemy_list_anims(enemy_t *);

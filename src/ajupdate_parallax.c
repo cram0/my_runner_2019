@@ -14,5 +14,6 @@ void aju_parallax(parallax *_parallax)
     aju_fourth_layer(&_parallax->fourth_layer, _parallax->layer_clock);
     aju_fifth_layer(&_parallax->fifth_layer, _parallax->layer_clock);
     aju_sixth_layer(&_parallax->sixth_layer, _parallax->layer_clock);
+    aju_seventh_layer(&_parallax->seventh_layer, _parallax->layer_clock);
     sfClock_restart(_parallax->layer_clock);
 }

@@ -16,4 +16,5 @@ void aji_parallax(parallax *_parallax)
     aji_fourth_layer(&_parallax->fourth_layer);
     aji_fifth_layer(&_parallax->fifth_layer);
     aji_sixth_layer(&_parallax->sixth_layer);
+    aji_seventh_layer(&_parallax->seventh_layer);
 }

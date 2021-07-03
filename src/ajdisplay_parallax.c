@@ -28,4 +28,7 @@ void ajd_parallax_thunder(running_scene *_running_scene)
 
     sfRenderWindow_drawSprite(_running_scene->window, _running_scene->parallax.sixth_layer.sprite_one, NULL);
     sfRenderWindow_drawSprite(_running_scene->window, _running_scene->parallax.sixth_layer.sprite_two, NULL);
+
+    sfRenderWindow_drawSprite(_running_scene->window, _running_scene->parallax.seventh_layer.sprite_one, NULL);
+    sfRenderWindow_drawSprite(_running_scene->window, _running_scene->parallax.seventh_layer.sprite_two, NULL);
 }
