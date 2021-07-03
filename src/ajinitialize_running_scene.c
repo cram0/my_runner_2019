@@ -14,7 +14,7 @@ void aji_thunder(running_scene *_running_scene)
     _running_scene->thunder.sound = sfSound_create();
     _running_scene->thunder.sound_buffer = sfSoundBuffer_createFromFile("sounds/running_scene/thunder.ogg");
     sfSound_setBuffer(_running_scene->thunder.sound, _running_scene->thunder.sound_buffer);
-    sfSound_setVolume(_running_scene->thunder.sound, 50.0);
+    sfSound_setVolume(_running_scene->thunder.sound, VOLUME);
     _running_scene->thunder.thunder_clock = sfClock_create();
     _running_scene->thunder.cooldown_clock = sfClock_create();
     _running_scene->thunder.texture = sfTexture_createFromFile("img/background/thunder.png", NULL);

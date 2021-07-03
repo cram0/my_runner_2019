@@ -11,5 +11,5 @@ void aji_menu_scene_music(menu_scene *_scene)
 {
     _scene->music = sfMusic_createFromFile("music/prayer.ogg");
     sfMusic_setLoop(_scene->music, sfTrue);
-    sfMusic_setVolume(_scene->music, 50.0);
+    sfMusic_setVolume(_scene->music, VOLUME / 2);
 }

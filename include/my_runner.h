@@ -20,6 +20,8 @@
 #include <fcntl.h>
 #include <stdio.h>
 
+#define VOLUME 10.0
+
 enum player_state {
     IDLE,
     IDLETORUN,
@@ -268,6 +270,7 @@ void aju_hitbox_collision(running_scene);
 void reset_enemies_clocks(enemies_clocks *);
 void aju_game_over_scene(game_over_scene *);
 void aju_score(running_scene *);
+void aju_thunder(running_scene *);
 
 // DISPLAY
 

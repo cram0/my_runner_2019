@@ -18,7 +18,7 @@ void aji_game_over_scene(game_over_scene *_scene, sfRenderWindow *_window)
     _scene->music = sfMusic_createFromFile("music/game_over.ogg");
     _scene->clock = sfClock_create();
     sfSprite_setScale(_scene->sprite, (sfVector2f){3.5, 4.1});
-    sfMusic_setVolume(_scene->music, 50.0);
+    sfMusic_setVolume(_scene->music, VOLUME / 2);
     sfSprite_setTexture(_scene->sprite, _scene->texture, sfTrue);
     sfSprite_setTextureRect(_scene->sprite, _scene->text_rect);
     sfSprite_setPosition(_scene->sprite, _scene->pos);
