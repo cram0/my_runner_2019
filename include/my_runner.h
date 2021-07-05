@@ -21,6 +21,8 @@
 #include <stdio.h>
 
 #define VOLUME 10.0
+#define WINDOW_WIDTH 896
+#define WINDOW_HEIGHT 840
 
 enum player_state {
     IDLE,
@@ -330,5 +332,6 @@ void ajd_thunder(running_scene *);
 
 int get_random_number(int, int);
 bool is_good_map(char *);
+void drawSprite_ifInScreen(sfRenderWindow *, sfSprite *);
 
 #endif

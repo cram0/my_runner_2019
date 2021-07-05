@@ -14,13 +14,13 @@ void ajd_item_list(items_list *_list, sfRenderWindow *_window, bool dbg)
     }
     if (_list->item->next == NULL) {
         if (_list->item->should_draw) {
-            sfRenderWindow_drawSprite(_window, _list->item->sprite, NULL);
+            drawSprite_ifInScreen(_window, _list->item->sprite);
         }
     }
     else {
         while (_list->item->next != NULL) {
             if (_list->item->should_draw) {
-                sfRenderWindow_drawSprite(_window, _list->item->sprite, NULL);
+                drawSprite_ifInScreen(_window, _list->item->sprite);
                 if (dbg == true) {
                     sfRectangleShape *dbg_hb = sfRectangleShape_create();
                     sfRectangleShape_setSize(dbg_hb, (sfVector2f){_list->item->hitbox.width, _list->item->hitbox.height});

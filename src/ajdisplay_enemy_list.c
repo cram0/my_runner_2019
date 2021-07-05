@@ -10,10 +10,10 @@
 void ajd_enemy_list(enemy_t *_enemy, sfRenderWindow *_window, bool dbg)
 {
     if (_enemy->next == NULL)
-        sfRenderWindow_drawSprite(_window, _enemy->sprite, NULL);
+        drawSprite_ifInScreen(_window, _enemy->sprite);
     else {
         while (_enemy->next != NULL) {
-            sfRenderWindow_drawSprite(_window, _enemy->sprite, NULL);
+            drawSprite_ifInScreen(_window, _enemy->sprite);
             if (dbg == true) {
                 sfRectangleShape *dbg_hb = sfRectangleShape_create();
                 sfRectangleShape_setSize(dbg_hb, (sfVector2f)

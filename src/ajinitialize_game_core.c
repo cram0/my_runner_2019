@@ -9,7 +9,7 @@
 
 void aji_game_core(game_core *_game_core, char *map)
 {
-    sfRenderWindow *window = sfRenderWindow_create((sfVideoMode){896, 840, 32},
+    sfRenderWindow *window = sfRenderWindow_create((sfVideoMode){WINDOW_WIDTH, WINDOW_HEIGHT, 32},
     "Alucard's Journey", sfDefaultStyle, NULL);
     sfRenderWindow_setFramerateLimit(window, 120);
     _game_core->window = window;

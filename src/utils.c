@@ -24,3 +24,10 @@ bool is_good_map(char *map)
     }
     return (true);
 }
+
+void drawSprite_ifInScreen(sfRenderWindow *window, sfSprite *sprite) {
+    if ((sfSprite_getPosition(sprite).x >= -200 && sfSprite_getPosition(sprite).x <= WINDOW_WIDTH + 200) &&
+        sfSprite_getPosition(sprite).y >= -200 && sfSprite_getPosition(sprite).y <= WINDOW_HEIGHT + 200) {
+            sfRenderWindow_drawSprite(window, sprite, NULL);
+        }
+}
