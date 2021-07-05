@@ -57,11 +57,6 @@ void aju_item_list(items_list *_list)
     reset_item_clock(_list);
 }
 
-void aju_item_tag(items_list *_list)
-{
-
-}
-
 void aju_running_scene(running_scene *_running_scene)
 {
     aju_running_scene_event(_running_scene);
@@ -69,7 +64,6 @@ void aju_running_scene(running_scene *_running_scene)
     aju_player(&_running_scene->player);
     aju_enemy_list(_running_scene);
     aju_item_list(_running_scene->items);
-    aju_item_tag(_running_scene->items);
     aju_score(_running_scene);
     aju_thunder(_running_scene);
 }
