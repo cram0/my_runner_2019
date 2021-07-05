@@ -13,6 +13,7 @@ void aji_player(player *_player)
     _player->anim_clock = sfClock_create();
     _player->move_clock = sfClock_create();
     _player->sprite = sfSprite_create();
+    _player->hitbox = (sfIntRect){0, 0, 0, 0,};
     sfSprite_setScale(_player->sprite, (sfVector2f){3.5, 3.5});
     _player->pos.x = 100;
     _player->pos.y = 357;
