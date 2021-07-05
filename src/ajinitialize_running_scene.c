@@ -80,6 +80,7 @@ void add_node_item_empty(items_list *_list, int item_id)
     _list->item->pos = fill_item_pos(item_id);
     _list->item->hitbox = fill_item_hitbox(item_id);
     _list->item->type = fill_item_type(item_id);
+    _list->item->should_draw = true;
     fill_item_texture(_list->item->sprite, _list->texture, item_id);
     sfSprite_setPosition(_list->item->sprite, _list->item->pos);
     sfSprite_setScale(_list->item->sprite, (sfVector2f){3.5, 3.5});
@@ -95,6 +96,7 @@ void add_node_item_filled(items_list *_list, int item_id, int offset)
     temp->pos.x = offset;
     temp->hitbox = fill_item_hitbox(item_id);
     temp->type = fill_item_type(item_id);
+    temp->should_draw = true;
     fill_item_texture(temp->sprite, _list->texture, item_id);
     sfSprite_setPosition(temp->sprite, temp->pos);
     sfSprite_setScale(temp->sprite, (sfVector2f){3.5, 3.5});
@@ -111,6 +113,13 @@ void add_node_item(items_list *_list, int item_id, int offset)
     else {
         add_node_item_filled(_list, item_id, offset);
     }
+}
+
+void aji_item_sound(items_list *_list)
+{
+    sfSoundBuffer *sdnbf_tmp = sfSoundBuffer_createFromFile("sounds/running_scene/item_pickup.wav");
+    _list->sound = sfSound_create();
+    sfSound_setBuffer(_list->sound, sdnbf_tmp);
 }
 
 void aji_item_list_scratch(items_list *_list)
@@ -154,17 +163,32 @@ void aji_item_list(items_list *_list, char *map)
         }
 }
 
+void aji_item_tag(item_tag_t *tag)
+{
+    tag->sprite = sfSprite_create();
+    tag->texture = sfTexture_createFromFile("img/items/food_tags.png", NULL);
+    tag->should_draw = false;
+    tag->duration_clock = sfClock_create();
+    tag->current_tag_type = 1;
+    sfSprite_setTexture(tag->sprite, tag->texture, sfFalse);
+    sfSprite_setPosition(tag->sprite, (sfVector2f){45, 720});
+    sfSprite_setScale(tag->sprite, (sfVector2f){3.5, 3.5});
+}
+
 void aji_running_scene(running_scene *_running_scene, sfRenderWindow *_window, char *map)
 {
     _running_scene->window = _window;
     _running_scene->enemies = malloc(sizeof(enemy_t));
     _running_scene->items = malloc(sizeof(items_list));
+    _running_scene->item_tag = malloc(sizeof(item_tag_t));
     _running_scene->debug = false;
     _running_scene->clock = sfClock_create();
     aji_enemy_types_text(&_running_scene->enemy_types_text);
     aji_enemy_list(_running_scene->enemies, map, &_running_scene->enemy_types_text);
     aji_enemies_clocks(&_running_scene->clocks);
+    aji_item_tag(_running_scene->item_tag);
     aji_item_list(_running_scene->items, map);
+    aji_item_sound(_running_scene->items);
     aji_parallax(&_running_scene->parallax);
     aji_thunder(_running_scene);
     aji_player(&_running_scene->player);

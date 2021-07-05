@@ -129,11 +129,20 @@ typedef struct enemy_t {
     struct enemy_t *next;
 } enemy_t ;
 
+typedef struct item_tag_t {
+    sfSprite *sprite;
+    sfTexture *texture;
+    sfClock *duration_clock;
+    int current_tag_type;
+    bool should_draw;
+} item_tag_t;
+
 typedef struct item_t {
     sfSprite *sprite;
     sfVector2f pos;
     sfIntRect hitbox;
     int type;
+    bool should_draw;
     struct item_t *previous;
     struct item_t *next;
 } item_t;
@@ -142,6 +151,7 @@ typedef struct items_list {
     sfTexture *texture;
     sfClock *move_clock;
     item_t *item;
+    sfSound *sound;
 } items_list;
 
 typedef struct enemies_clocks {
@@ -159,6 +169,7 @@ typedef struct running_scene {
     parallax parallax;
     thunder_t thunder;
     items_list *items;
+    item_tag_t *item_tag;
     enemy_t *enemies;
     enemy_types_text enemy_types_text;
     enemies_clocks clocks;
@@ -295,7 +306,7 @@ void aju_panther_hitbox(enemy_t *);
 void aju_bat_anim(enemy_t *);
 void aju_ww_anim(enemy_t *);
 void aju_panth_anim(enemy_t *);
-void aju_hitbox_collision(running_scene);
+void aju_hitbox_collision(running_scene *);
 void reset_enemies_clocks(enemies_clocks *);
 void aju_game_over_scene(game_over_scene *);
 void aju_score(running_scene *);

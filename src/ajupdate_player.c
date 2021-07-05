@@ -11,7 +11,7 @@ void aju_player_hitbox(player *_player)
 {
     switch (_player->state) {
         case RUNNING: _player->hitbox = (sfIntRect){_player->pos.x + 27 * 3.5,
-        _player->pos.y + 10 * 3.5, 11 * 3.5, 25 * 3.5};
+        _player->pos.y + 10 * 3.5, 11 * 3.5, 35 * 3.5};
             break;
         case JUMPING: _player->hitbox = (sfIntRect){_player->pos.x + 27 * 3.5,
         _player->pos.y + 10 * 3.5, 11 * 3.5, 21 * 3.5};
