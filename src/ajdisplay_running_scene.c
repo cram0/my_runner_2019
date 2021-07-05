@@ -9,6 +9,9 @@
 
 void ajd_item_list(items_list *_list, sfRenderWindow *_window, bool dbg)
 {
+    while (_list->item->previous != NULL) {
+        _list->item = _list->item->previous;
+    }
     if (_list->item->next == NULL) {
         sfRenderWindow_drawSprite(_window, _list->item->sprite, NULL);
     }

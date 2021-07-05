@@ -60,17 +60,17 @@ sfVector2f fill_item_pos(int item_id)
         case ICE_CREAM :
             return ((sfVector2f){1000, 476});
         case TURKEY :
-            return ((sfVector2f){1000, 476});
+            return ((sfVector2f){1000, 483});
         case SHORTCAKE :
-            return ((sfVector2f){1000, 476});
+            return ((sfVector2f){1000, 490});
         case APPLE :
-            return ((sfVector2f){1000, 476});
+            return ((sfVector2f){1000, 504});
         case SPAGHETTI :
-            return ((sfVector2f){1000, 476});
+            return ((sfVector2f){1000, 480});
         case PARFAIT :
             return ((sfVector2f){1000, 476});
         default :
-            return ((sfVector2f){1000, 476});
+            return ((sfVector2f){1000, 600});
     }
 }
 
@@ -129,23 +129,25 @@ void aji_item_list(items_list *_list, char *map)
     int map_i = 0, offset = 500;
     while (map[map_i++])
         switch (map[map_i]) {
-            case 'i': offset += 1;
+            case 'i': offset += 1000;
                 add_node_item(_list, ICE_CREAM, offset);
                 break;
-            case 't': offset += 1;
+            case 't': offset += 1000;
                 add_node_item(_list, TURKEY, offset);
                 break;
-            case 's': offset += 1;
+            case 's': offset += 1000;
                 add_node_item(_list, SHORTCAKE, offset);
                 break;
-            case 'a': offset += 1;
+            case 'a': offset += 1000;
                 add_node_item(_list, APPLE, offset);
                 break;
-            case 'S': offset += 1;
+            case 'S': offset += 1000;
                 add_node_item(_list, SPAGHETTI, offset);
                 break;
-            case 'p': offset += 1;
+            case 'p': offset += 1000;
                 add_node_item(_list, PARFAIT, offset);
+                break;
+            case ' ': offset += 100;
                 break;
             default:
                 break;

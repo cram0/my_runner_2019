@@ -14,6 +14,9 @@ void reset_item_clock(items_list *_list)
 
 void aju_item_hitbox(items_list *_list)
 {
+    while (_list->item->previous != NULL) {
+        _list->item = _list->item->previous;
+    }
     if (_list->item->next == NULL) {
         _list->item->hitbox.left = _list->item->pos.x;
         _list->item->hitbox.top = _list->item->pos.y;
@@ -28,12 +31,14 @@ void aju_item_hitbox(items_list *_list)
 
 void aju_item_pos(items_list *_list)
 {
+    while (_list->item->previous != NULL) {
+        _list->item = _list->item->previous;
+    }
     if (_list->item->next == NULL) {
         if (_list->item->pos.x <= -300)
             _list->item->pos.x = -300;
         _list->item->pos.x -= 300 * sfTime_asSeconds(sfClock_getElapsedTime(_list->move_clock));
         sfSprite_setPosition(_list->item->sprite, _list->item->pos);
-        // printf("X : %f, Y : %f\n", _list->item->pos.x, _list->item->pos.y);
     }
     else
         while (_list->item->next != NULL) {
