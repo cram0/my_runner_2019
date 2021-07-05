@@ -45,14 +45,7 @@ bool check_map(char *_map)
     map[map_size] = '\0';
     read(fd, map, map_size);
     close(fd);
-    int map_i = 0;
-    while (map[map_i]) {
-        if (map[map_i] != '_' && map[map_i] != '1' && map[map_i] != '2' && map
-        [map_i] != '3' && map[map_i] != ' ' && map[map_i] != '\n')
-            return (false);
-        map_i++;
-    }
-    return (true);
+    return (is_good_map(map));
 }
 
 void run(char *map)

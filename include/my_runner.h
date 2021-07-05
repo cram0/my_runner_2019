@@ -37,6 +37,15 @@ enum enemy_type {
     PANTHER
 } ;
 
+enum item_type {
+    ICE_CREAM = 1,
+    TURKEY,
+    SHORTCAKE,
+    APPLE,
+    SPAGHETTI,
+    PARFAIT
+} ;
+
 enum game_state {
     INGAME,
     MENU,
@@ -120,6 +129,21 @@ typedef struct enemy_t {
     struct enemy_t *next;
 } enemy_t ;
 
+typedef struct item_t {
+    sfSprite *sprite;
+    sfVector2f pos;
+    sfIntRect hitbox;
+    int type;
+    struct item_t *previous;
+    struct item_t *next;
+} item_t;
+
+typedef struct items_list {
+    sfTexture *texture;
+    sfClock *move_clock;
+    item_t *item;
+} items_list;
+
 typedef struct enemies_clocks {
     sfClock *move_clock;
     sfClock *anim_clock;
@@ -134,6 +158,7 @@ typedef struct running_scene {
     int score;
     parallax parallax;
     thunder_t thunder;
+    items_list *items;
     enemy_t *enemies;
     enemy_types_text enemy_types_text;
     enemies_clocks clocks;
@@ -293,5 +318,6 @@ void ajd_thunder(running_scene *);
 // UTILS
 
 int get_random_number(int, int);
+bool is_good_map(char *);
 
 #endif

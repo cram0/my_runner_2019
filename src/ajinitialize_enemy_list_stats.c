@@ -36,13 +36,13 @@ sfIntRect fill_enemy_rect(int enemy_type)
 sfVector2f fill_enemy_pos(int enemy_type)
 {
     switch (enemy_type) {
-        case BAT: return ((sfVector2f){0, 315});
+        case BAT: return ((sfVector2f){1500, 315});
             break;
-        case WEREWOLF: return ((sfVector2f){0, 367});
+        case WEREWOLF: return ((sfVector2f){1500, 367});
             break;
-        case PANTHER: return ((sfVector2f){0, 435});
+        case PANTHER: return ((sfVector2f){1500, 435});
             break;
-        default: return ((sfVector2f){0, 0});
+        default: return ((sfVector2f){1500, 0});
     }
 }
 
