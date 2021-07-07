@@ -274,6 +274,18 @@ void aji_sixth_layer(parallax_layer *);
 void aji_seventh_layer(parallax_layer *);
 void aji_game_over_scene(game_over_scene *, sfRenderWindow *);
 void aji_thunder(running_scene *);
+void add_node_item_empty(items_list *, int);
+void add_node_item_filled(items_list *, int, int);
+void add_node_item(items_list *, int, int);
+void aji_item_sound(items_list *);
+void aji_item_list_scratch(items_list *);
+void aji_item_list(items_list *, char *);
+void fill_item_texture(sfSprite *, sfTexture *, int);
+sfIntRect fill_item_hitbox(int);
+int fill_item_type(int);
+sfVector2f fill_item_pos(int);
+void aji_item_tag(item_tag_t *);
+
 
 // UPDATE
 
@@ -327,7 +339,6 @@ void aju_item_hitbox(items_list *);
 void aju_item_pos(items_list *);
 void aju_item_list(items_list *);
 
-
 // DISPLAY
 
 void ajd_game_core(game_core *, sfRenderWindow *);
@@ -341,8 +352,8 @@ void ajd_dbg_player_hitbox(running_scene *);
 void ajd_game_over_scene(game_over_scene *);
 void ajd_score(running_scene *);
 void ajd_thunder(running_scene *);
-void ajd_item_list(items_list *_list, sfRenderWindow *, bool);
-void ajd_item_tag(running_scene *_scene, sfRenderWindow *);
+void ajd_item_list(items_list *, sfRenderWindow *, bool);
+void ajd_item_tag(running_scene *, sfRenderWindow *);
 
 // UTILS
 
