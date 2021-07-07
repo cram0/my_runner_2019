@@ -66,6 +66,10 @@ typedef struct player_stance {
     stance crouch;
 } player_stance ;
 
+typedef struct player_shadow_t {
+    sfSprite *shadow;
+} player_shadow_t;
+
 typedef struct player {
     sfClock *move_clock;
     sfClock *anim_clock;
@@ -313,6 +317,16 @@ void reset_enemies_clocks(enemies_clocks *);
 void aju_game_over_scene(game_over_scene *);
 void aju_score(running_scene *);
 void aju_thunder(running_scene *);
+void aju_hitbox_collision_item(running_scene *);
+void aju_hitbox_collision_enemies(running_scene );
+void aju_hitbox_collision(running_scene *);
+void aju_hitbox_collision_item_type(running_scene *, item_t *);
+void aju_item_tag_clock(running_scene *);
+void reset_item_clock(items_list *);
+void aju_item_hitbox(items_list *);
+void aju_item_pos(items_list *);
+void aju_item_list(items_list *);
+
 
 // DISPLAY
 
@@ -327,6 +341,8 @@ void ajd_dbg_player_hitbox(running_scene *);
 void ajd_game_over_scene(game_over_scene *);
 void ajd_score(running_scene *);
 void ajd_thunder(running_scene *);
+void ajd_item_list(items_list *_list, sfRenderWindow *, bool);
+void ajd_item_tag(running_scene *_scene, sfRenderWindow *);
 
 // UTILS
 
