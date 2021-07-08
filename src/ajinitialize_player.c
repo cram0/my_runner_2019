@@ -7,6 +7,17 @@
 
 #include "../include/my_runner.h"
 
+void aji_player_shadows(player *_player)
+{
+    _player->shadow = malloc(sizeof(player_shadow_t));
+    _player->shadow->update_clock = NULL;
+    _player->shadow->shadow_idx = 0;
+    _player->shadow->lifespan_clock = NULL;
+    for (int i = 0; i < 5; i++) {
+        _player->shadow->sprite[i] = sfSprite_create();
+    }
+}
+
 void aji_player(player *_player)
 {
     aji_player_stance(&_player->stance_anim);
@@ -23,4 +34,5 @@ void aji_player(player *_player)
     NULL);
     sfSprite_setTexture(_player->sprite, _player->texture, sfTrue);
     sfSprite_setTextureRect(_player->sprite, _player->stance_anim.idling.rect);
+    aji_player_shadows(_player);
 }

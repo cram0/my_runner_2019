@@ -67,7 +67,10 @@ typedef struct player_stance {
 } player_stance ;
 
 typedef struct player_shadow_t {
-    sfSprite *shadow;
+    sfSprite *sprite[5];
+    sfClock *lifespan_clock;
+    sfClock *update_clock;
+    int shadow_idx;
 } player_shadow_t;
 
 typedef struct player {
@@ -81,6 +84,7 @@ typedef struct player {
     sfVector2f pos;
     player_stance stance_anim;
     sfIntRect hitbox;
+    player_shadow_t *shadow;
     float dy;
     float speed;
     int state;
