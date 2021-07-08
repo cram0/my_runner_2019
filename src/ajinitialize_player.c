@@ -9,7 +9,7 @@
 
 void aji_player_shadows(player *_player)
 {
-    _player->shadow = malloc(sizeof(player_shadow_t));
+    _player->shadow = malloc(sizeof(player_shadows_t));
     _player->shadow->update_clock = NULL;
     _player->shadow->shadow_idx = 0;
     _player->shadow->lifespan_clock = NULL;
