@@ -289,6 +289,7 @@ sfIntRect fill_item_hitbox(int);
 int fill_item_type(int);
 sfVector2f fill_item_pos(int);
 void aji_item_tag(item_tag_t *);
+void aji_player_shadows(player *);
 
 
 // UPDATE
@@ -342,6 +343,8 @@ void reset_item_clock(items_list *);
 void aju_item_hitbox(items_list *);
 void aju_item_pos(items_list *);
 void aju_item_list(items_list *);
+void aju_player_shadows(player *);
+void aju_player_hitbox(player *);
 
 // DISPLAY
 
@@ -364,5 +367,7 @@ void ajd_item_tag(running_scene *, sfRenderWindow *);
 int get_random_number(int, int);
 bool is_good_map(char *);
 void drawSprite_ifInScreen(sfRenderWindow *, sfSprite *);
+bool has_monsters(char *);
+bool has_items(char *);
 
 #endif
