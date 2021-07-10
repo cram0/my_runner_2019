@@ -22,7 +22,7 @@
 
 #define VOLUME 10.0
 
-#define SCALE_FACTOR 3
+#define SCALE_FACTOR 3.5
 
 #define WINDOW_WIDTH (256 * SCALE_FACTOR)
 #define WINDOW_HEIGHT (240 * SCALE_FACTOR)
@@ -263,7 +263,7 @@ void aji_menu_scene_music(menu_scene *);
 void aji_menu_background(menu_background *);
 void aji_running_scene(running_scene *, sfRenderWindow *, char *);
 void aji_running_scene_music(running_scene *);
-void aji_running_scene_score(running_scene *);
+void aji_score(running_scene *);
 void aji_enemy_list_scratch(enemy_t *);
 void aji_enemy_types_text(enemy_types_text *);
 void aji_enemy_list(enemy_t *, char *, enemy_types_text *);

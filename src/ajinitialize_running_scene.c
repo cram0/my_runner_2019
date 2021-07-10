@@ -25,5 +25,5 @@ void aji_running_scene(running_scene *_running_scene, sfRenderWindow *_window, c
     aji_thunder(_running_scene);
     aji_player(&_running_scene->player);
     aji_running_scene_music(_running_scene);
-    aji_running_scene_score(_running_scene);
+    aji_score(_running_scene);
 }
