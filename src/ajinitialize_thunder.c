@@ -21,5 +21,5 @@ void aji_thunder(running_scene *_running_scene)
     _running_scene->thunder.sprite = sfSprite_create();
     sfSprite_setTexture(_running_scene->thunder.sprite, _running_scene->thunder.texture, sfFalse);
     sfSprite_setPosition(_running_scene->thunder.sprite, (sfVector2f){0.0, 0.0});
-    sfSprite_setScale(_running_scene->thunder.sprite, (sfVector2f){3.5, 3.5});
+    sfSprite_setScale(_running_scene->thunder.sprite, (sfVector2f){SCALE_FACTOR, SCALE_FACTOR});
 }

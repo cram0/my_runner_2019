@@ -16,7 +16,7 @@ void add_node_item_empty(items_list *_list, int item_id)
     _list->item->should_draw = true;
     fill_item_texture(_list->item->sprite, _list->texture, item_id);
     sfSprite_setPosition(_list->item->sprite, _list->item->pos);
-    sfSprite_setScale(_list->item->sprite, (sfVector2f){3.5, 3.5});
+    sfSprite_setScale(_list->item->sprite, (sfVector2f){SCALE_FACTOR, SCALE_FACTOR});
 }
 
 void add_node_item_filled(items_list *_list, int item_id, int offset)
@@ -32,7 +32,7 @@ void add_node_item_filled(items_list *_list, int item_id, int offset)
     temp->should_draw = true;
     fill_item_texture(temp->sprite, _list->texture, item_id);
     sfSprite_setPosition(temp->sprite, temp->pos);
-    sfSprite_setScale(temp->sprite, (sfVector2f){3.5, 3.5});
+    sfSprite_setScale(temp->sprite, (sfVector2f){SCALE_FACTOR, SCALE_FACTOR});
     _list->item->next = temp;
     temp->previous = _list->item;
     temp->next = NULL;

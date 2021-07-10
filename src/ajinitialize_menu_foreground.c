@@ -21,6 +21,6 @@ void aji_menu_foreground(menu_foreground *_fg)
     sfSprite_setTexture(_fg->title_spr, _fg->title_text, sfTrue);
     sfSprite_setPosition(_fg->start_spr, (sfVector2f){170, 600});
     sfSprite_setPosition(_fg->title_spr, (sfVector2f){100, 100});
-    sfSprite_setScale(_fg->start_spr, (sfVector2f){2, 2});
-    sfSprite_setScale(_fg->title_spr, (sfVector2f){1.5, 2});
+    sfSprite_setScale(_fg->start_spr, (sfVector2f){SCALE_FACTOR / 1.75, SCALE_FACTOR / 1.75});
+    sfSprite_setScale(_fg->title_spr, (sfVector2f){SCALE_FACTOR / 2.333333333, SCALE_FACTOR / 1.75});
 }

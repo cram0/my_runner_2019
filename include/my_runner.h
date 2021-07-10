@@ -21,8 +21,13 @@
 #include <stdio.h>
 
 #define VOLUME 10.0
+
 #define WINDOW_WIDTH 896
 #define WINDOW_HEIGHT 840
+#define SCALE_FACTOR 3.5
+
+#define ALUCARD_SHADOW_COUNT 5
+
 
 enum player_state {
     IDLE,
@@ -67,7 +72,7 @@ typedef struct player_stance {
 } player_stance ;
 
 typedef struct player_shadows_t {
-    sfSprite *sprite[5];
+    sfSprite *sprite[ALUCARD_SHADOW_COUNT];
     sfClock *lifespan_clock;
     sfClock *update_clock;
     int shadow_idx;
@@ -361,6 +366,7 @@ void ajd_score(running_scene *);
 void ajd_thunder(running_scene *);
 void ajd_item_list(items_list *, sfRenderWindow *, bool);
 void ajd_item_tag(running_scene *, sfRenderWindow *);
+void ajd_player_shadows(player *, sfRenderWindow *);
 
 // UTILS
 

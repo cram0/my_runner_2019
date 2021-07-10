@@ -16,5 +16,5 @@ void aji_item_tag(item_tag_t *tag)
     tag->current_tag_type = 1;
     sfSprite_setTexture(tag->sprite, tag->texture, sfFalse);
     sfSprite_setPosition(tag->sprite, (sfVector2f){45, 720});
-    sfSprite_setScale(tag->sprite, (sfVector2f){3.5, 3.5});
+    sfSprite_setScale(tag->sprite, (sfVector2f){SCALE_FACTOR, SCALE_FACTOR});
 }

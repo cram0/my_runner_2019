@@ -20,7 +20,7 @@ void add_node_enemy_empty(enemy_t *_enemies, int enemy_id, enemy_types_text
     sfSprite_setTexture(_enemies->sprite, _enemies->texture, sfTrue);
     sfSprite_setTextureRect(_enemies->sprite, _enemies->text_rect);
     sfSprite_setPosition(_enemies->sprite, _enemies->pos);
-    sfSprite_setScale(_enemies->sprite, (sfVector2f){3.5, 3.5});
+    sfSprite_setScale(_enemies->sprite, (sfVector2f){SCALE_FACTOR, SCALE_FACTOR});
 }
 
 void add_node_enemy_filled(enemy_t *_enemies, int enemy_id, enemy_types_text
@@ -40,7 +40,7 @@ void add_node_enemy_filled(enemy_t *_enemies, int enemy_id, enemy_types_text
     sfSprite_setTexture(temp->sprite, temp->texture, sfTrue);
     sfSprite_setTextureRect(temp->sprite, temp->text_rect);
     sfSprite_setPosition(temp->sprite, temp->pos);
-    sfSprite_setScale(temp->sprite, (sfVector2f){3.5, 3.5});
+    sfSprite_setScale(temp->sprite, (sfVector2f){SCALE_FACTOR, SCALE_FACTOR});
     _enemies->next = temp;
     temp->previous = _enemies;
     temp->next = NULL;

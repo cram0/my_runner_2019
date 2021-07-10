@@ -10,10 +10,10 @@
 void aji_player_shadows(player *_player)
 {
     _player->shadow = malloc(sizeof(player_shadows_t));
-    _player->shadow->update_clock = NULL;
     _player->shadow->shadow_idx = 0;
+    _player->shadow->update_clock = NULL;
     _player->shadow->lifespan_clock = NULL;
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < ALUCARD_SHADOW_COUNT; i++) {
         _player->shadow->sprite[i] = sfSprite_create();
     }
 }

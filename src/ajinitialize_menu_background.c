@@ -16,5 +16,5 @@ void aji_menu_background(menu_background *_bg)
     sfSprite_setTexture(_bg->sprite, _bg->texture, sfTrue);
     sfSprite_setTextureRect(_bg->sprite, _bg->rect);
     sfSprite_setPosition(_bg->sprite, (sfVector2f){0, 0});
-    sfSprite_setScale(_bg->sprite, (sfVector2f){3.5, 6});
+    sfSprite_setScale(_bg->sprite, (sfVector2f){SCALE_FACTOR, SCALE_FACTOR * 1.7});
 }

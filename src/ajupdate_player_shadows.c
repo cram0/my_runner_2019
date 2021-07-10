@@ -15,9 +15,9 @@ void aju_player_shadows(player *_player)
     float moving_factor = sfTime_asSeconds(sfClock_restart(_player->shadow->update_clock)) * -300;
 
     sfColor tmp_color = sfSprite_getColor(_player->shadow->sprite[*i]);
-    if (tmp_color.a >= 40) { tmp_color.a -= 40; }
-    if (tmp_color.r >= 40) { tmp_color.r -= 40; }
-    if (tmp_color.g >= 40) { tmp_color.g -= 40; }
+    if (tmp_color.a >= __UINT8_MAX__ / ALUCARD_SHADOW_COUNT) { tmp_color.a -= __UINT8_MAX__ / ALUCARD_SHADOW_COUNT; }
+    if (tmp_color.r >= __UINT8_MAX__ / ALUCARD_SHADOW_COUNT) { tmp_color.r -= __UINT8_MAX__ / ALUCARD_SHADOW_COUNT; }
+    if (tmp_color.g >= __UINT8_MAX__ / ALUCARD_SHADOW_COUNT) { tmp_color.g -= __UINT8_MAX__ / ALUCARD_SHADOW_COUNT; }
 
     sfSprite_setColor(_player->shadow->sprite[*i], tmp_color);
     sfSprite_move(_player->shadow->sprite[*i], (sfVector2f){moving_factor * 5, 0});
@@ -27,5 +27,5 @@ void aju_player_shadows(player *_player)
         _player->shadow->sprite[*i] = sfSprite_copy(_player->sprite);
         sfClock_restart(_player->shadow->lifespan_clock);
     }
-    if (++(*i) == 5) { *i = 0; }
+    if (++(*i) == ALUCARD_SHADOW_COUNT) { *i = 0; }
 }
