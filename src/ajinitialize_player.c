@@ -10,8 +10,8 @@
 void aji_player(player *_player)
 {
     aji_player_stance(&_player->stance_anim);
-    _player->anim_clock = sfClock_create();
-    _player->move_clock = sfClock_create();
+    _player->anim_clock = NULL;
+    _player->move_clock = NULL;
     _player->sprite = sfSprite_create();
     _player->hitbox = (sfIntRect){0, 0, 0, 0};
     sfSprite_setScale(_player->sprite, (sfVector2f){SCALE_FACTOR, SCALE_FACTOR});

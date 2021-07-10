@@ -58,7 +58,7 @@ void aji_item_sound(items_list *_list)
 void aji_item_list_scratch(items_list *_list)
 {
     _list->texture = sfTexture_createFromFile("img/items/food.png", NULL);
-    _list->move_clock = sfClock_create();
+    _list->move_clock = NULL;
     _list->item = malloc(sizeof(item_t));
     _list->item->sprite = NULL;
     _list->item->previous = NULL;

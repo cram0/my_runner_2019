@@ -16,7 +16,7 @@ void add_node_enemy_empty(enemy_t *_enemies, int enemy_id, enemy_types_text
     _enemies->text_rect = fill_enemy_rect(enemy_id);
     _enemies->hitbox = fill_enemy_hitbox(enemy_id);
     _enemies->type = fill_enemy_type(enemy_id);
-    _enemies->anim_clock = sfClock_create();
+    _enemies->anim_clock = NULL;
     sfSprite_setTexture(_enemies->sprite, _enemies->texture, sfTrue);
     sfSprite_setTextureRect(_enemies->sprite, _enemies->text_rect);
     sfSprite_setPosition(_enemies->sprite, _enemies->pos);
@@ -36,7 +36,7 @@ void add_node_enemy_filled(enemy_t *_enemies, int enemy_id, enemy_types_text
     temp->text_rect = fill_enemy_rect(enemy_id);
     temp->hitbox = fill_enemy_hitbox(enemy_id);
     temp->type = fill_enemy_type(enemy_id);
-    temp->anim_clock = sfClock_create();
+    temp->anim_clock = NULL;
     sfSprite_setTexture(temp->sprite, temp->texture, sfTrue);
     sfSprite_setTextureRect(temp->sprite, temp->text_rect);
     sfSprite_setPosition(temp->sprite, temp->pos);

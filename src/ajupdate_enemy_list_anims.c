@@ -9,6 +9,7 @@
 
 void aju_bat_anim(enemy_t *_bat)
 {
+    if (!_bat->anim_clock) {_bat->anim_clock = sfClock_create(); }
     if (sfTime_asSeconds(sfClock_getElapsedTime(_bat->anim_clock)) > 0.050) {
         if (_bat->text_rect.left == _bat->text_rect.width * 11)
             _bat->text_rect.left = 0;
@@ -20,6 +21,7 @@ void aju_bat_anim(enemy_t *_bat)
 
 void aju_ww_anim(enemy_t *_ww)
 {
+    if (!_ww->anim_clock) {_ww->anim_clock = sfClock_create(); }
     if (sfTime_asSeconds(sfClock_getElapsedTime(_ww->anim_clock)) > 0.100) {
         if (_ww->text_rect.left == _ww->text_rect.width * 4)
             _ww->text_rect.left = 0;
@@ -31,6 +33,7 @@ void aju_ww_anim(enemy_t *_ww)
 
 void aju_panth_anim(enemy_t *_panth)
 {
+    if (!_panth->anim_clock) {_panth->anim_clock = sfClock_create(); }
     if (sfTime_asSeconds(sfClock_getElapsedTime(_panth->anim_clock)) > 0.070) {
         if (_panth->text_rect.left == _panth->text_rect.width * 4)
             _panth->text_rect.left = 0;

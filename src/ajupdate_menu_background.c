@@ -9,6 +9,7 @@
 
 void aju_menu_background(menu_background *_bg)
 {
+    if (!_bg->clock) {_bg->clock = sfClock_create(); }
     if (sfTime_asSeconds(sfClock_getElapsedTime(_bg->clock)) > 0.250) {
         if (_bg->rect.left >= 1536)
             _bg->rect.left = 0;

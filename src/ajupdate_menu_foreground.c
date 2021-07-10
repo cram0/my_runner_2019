@@ -9,6 +9,7 @@
 
 void aju_menu_foreground(menu_foreground *_fg)
 {
+    if (!_fg->start_clock) {_fg->start_clock = sfClock_create(); }
     if (sfTime_asSeconds(sfClock_getElapsedTime(_fg->start_clock)) > 0.800) {
         if (_fg->start_show == false) {
             sfSprite_setPosition(_fg->start_spr, (sfVector2f){48.571428571 * SCALE_FACTOR, 171.428571429 * SCALE_FACTOR});

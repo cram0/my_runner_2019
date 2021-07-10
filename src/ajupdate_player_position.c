@@ -10,6 +10,7 @@ static const float GRAVITY = 357.142857143 * SCALE_FACTOR;
 
 void aju_player_position_y(player *_player)
 {
+    if (!_player->move_clock) { _player->move_clock = sfClock_create(); }
     if (_player->state == RUNNING) {
         _player->dy = 0;
     }

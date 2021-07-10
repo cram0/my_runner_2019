@@ -38,6 +38,7 @@ void aju_hitbox_collision_item_type(running_scene *_scene, item_t *_item)
 
 void aju_item_tag_clock(running_scene *_scene)
 {
+    if (!_scene->item_tag->duration_clock) {_scene->item_tag->duration_clock = sfClock_create(); }
     if (_scene->item_tag->should_draw) {
         if (sfTime_asMilliseconds(sfClock_getElapsedTime(_scene->item_tag->duration_clock)) >= 2000) {
             _scene->item_tag->should_draw = false;

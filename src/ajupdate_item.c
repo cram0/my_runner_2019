@@ -52,6 +52,7 @@ void aju_item_pos(items_list *_list)
 
 void aju_item_list(items_list *_list)
 {
+    if (!_list->move_clock) { _list->move_clock = sfClock_create(); }
     aju_item_pos(_list);
     aju_item_hitbox(_list);
     reset_item_clock(_list);

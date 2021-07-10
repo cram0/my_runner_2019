@@ -9,7 +9,7 @@
 
 void aji_menu_background(menu_background *_bg)
 {
-    _bg->clock = sfClock_create();
+    _bg->clock = NULL;
     _bg->sprite = sfSprite_create();
     _bg->texture = sfTexture_createFromFile("img/background/menu.png", NULL);
     _bg->rect = (sfIntRect){0, 0, 256, 141};

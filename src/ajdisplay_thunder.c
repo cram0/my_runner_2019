@@ -10,7 +10,7 @@
 void ajd_thunder(running_scene *_running_scene)
 {
     thunder_t *thunder = &_running_scene->thunder;
-
+    if (!thunder->thunder_clock) { thunder->thunder_clock = sfClock_create(); }
     if (thunder->is_detonating) {
         sfRenderWindow_drawSprite(_running_scene->window, thunder->sprite, NULL);
         if (sfTime_asMilliseconds(sfClock_getElapsedTime(thunder->thunder_clock)) >= 75) {

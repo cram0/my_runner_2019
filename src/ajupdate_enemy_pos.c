@@ -27,6 +27,7 @@ void aju_enemy_pos(enemy_t *_enemy, enemies_clocks *_clocks)
 
 void aju_enemy_list_pos(enemy_t *_enemy, enemies_clocks *_clocks)
 {
+    if (!_clocks->move_clock) {_clocks->move_clock = sfClock_create(); }
     if (_enemy->next == NULL) {
         if (_enemy->pos.x <= -(85.714285714 * SCALE_FACTOR))
             _enemy->pos.x = -(85.714285714 * SCALE_FACTOR);

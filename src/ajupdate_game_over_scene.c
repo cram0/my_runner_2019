@@ -9,6 +9,7 @@
 
 void aju_game_over_scene(game_over_scene *_scene)
 {
+    if (!_scene->clock) {_scene->clock = sfClock_create(); }
     if (sfTime_asSeconds(sfClock_getElapsedTime(_scene->clock)) > 0.300) {
         if (_scene->text_rect.left >= _scene->text_rect.width * 5)
             _scene->text_rect.left = _scene->text_rect.width * 4;

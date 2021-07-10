@@ -12,7 +12,7 @@ void aji_item_tag(item_tag_t *tag)
     tag->sprite = sfSprite_create();
     tag->texture = sfTexture_createFromFile("img/items/food_tags.png", NULL);
     tag->should_draw = false;
-    tag->duration_clock = sfClock_create();
+    tag->duration_clock = NULL;
     tag->current_tag_type = 1;
     sfSprite_setTexture(tag->sprite, tag->texture, sfFalse);
     sfSprite_setPosition(tag->sprite, (sfVector2f){12 * SCALE_FACTOR, 205 * SCALE_FACTOR});

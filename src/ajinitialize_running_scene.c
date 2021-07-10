@@ -14,7 +14,7 @@ void aji_running_scene(running_scene *_running_scene, sfRenderWindow *_window, c
     _running_scene->items = malloc(sizeof(items_list));
     _running_scene->item_tag = malloc(sizeof(item_tag_t));
     _running_scene->debug = false;
-    _running_scene->clock = sfClock_create();
+    _running_scene->clock = NULL;
     aji_enemy_types_text(&_running_scene->enemy_types_text);
     aji_enemy_list(_running_scene->enemies, map, &_running_scene->enemy_types_text);
     aji_enemies_clocks(&_running_scene->clocks);
