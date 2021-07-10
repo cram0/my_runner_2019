@@ -68,28 +68,28 @@ void aji_item_list_scratch(items_list *_list)
 void aji_item_list(items_list *_list, char *map)
 {
     aji_item_list_scratch(_list);
-    int map_i = 0, offset = 500;
+    int map_i = 0, offset = BASE_ITEM_OFFSET / 2;
     while (map[map_i++])
         switch (map[map_i]) {
-            case 'i': offset += 1000;
+            case 'i': offset += BASE_ITEM_OFFSET;
                 add_node_item(_list, ICE_CREAM, offset);
                 break;
-            case 't': offset += 1000;
+            case 't': offset += BASE_ITEM_OFFSET;
                 add_node_item(_list, TURKEY, offset);
                 break;
-            case 's': offset += 1000;
+            case 's': offset += BASE_ITEM_OFFSET;
                 add_node_item(_list, SHORTCAKE, offset);
                 break;
-            case 'a': offset += 1000;
+            case 'a': offset += BASE_ITEM_OFFSET;
                 add_node_item(_list, APPLE, offset);
                 break;
-            case 'S': offset += 1000;
+            case 'S': offset += BASE_ITEM_OFFSET;
                 add_node_item(_list, SPAGHETTI, offset);
                 break;
-            case 'p': offset += 1000;
+            case 'p': offset += BASE_ITEM_OFFSET;
                 add_node_item(_list, PARFAIT, offset);
                 break;
-            case ' ': offset += 100;
+            case ' ': offset += BLANK_ITEM_OFFSET;
                 break;
             default:
                 break;

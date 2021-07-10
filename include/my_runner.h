@@ -22,12 +22,23 @@
 
 #define VOLUME 10.0
 
-#define WINDOW_WIDTH 896
-#define WINDOW_HEIGHT 840
-#define SCALE_FACTOR 3.5
+#define SCALE_FACTOR 3
+
+#define WINDOW_WIDTH (256 * SCALE_FACTOR)
+#define WINDOW_HEIGHT (240 * SCALE_FACTOR)
+#define WINDOW_FRAMERATE 120
+#define WINDOW_BPP 32
 
 #define ALUCARD_SHADOW_COUNT 5
 
+#define BASE_MONSTER_OFFSET (285 * SCALE_FACTOR)
+#define BLANK_MONSTER_OFFSET (142.5 * SCALE_FACTOR)
+#define BAT_POS_OFFSET (28.5 * SCALE_FACTOR)
+#define WEREWOLF_POS_OFFSET (171 * SCALE_FACTOR)
+#define PANTHER_POS_OFFSET (285 * SCALE_FACTOR)
+
+#define BASE_ITEM_OFFSET (285 * SCALE_FACTOR)
+#define BLANK_ITEM_OFFSET (28 * SCALE_FACTOR)
 
 enum player_state {
     IDLE,
@@ -362,7 +373,6 @@ void ajd_enemy_list(enemy_t *, sfRenderWindow *, bool);
 void ajd_score(running_scene *);
 void ajd_dbg_player_hitbox(running_scene *);
 void ajd_game_over_scene(game_over_scene *);
-void ajd_score(running_scene *);
 void ajd_thunder(running_scene *);
 void ajd_item_list(items_list *, sfRenderWindow *, bool);
 void ajd_item_tag(running_scene *, sfRenderWindow *);

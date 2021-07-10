@@ -20,6 +20,6 @@ void aji_thunder(running_scene *_running_scene)
     _running_scene->thunder.texture = sfTexture_createFromFile("img/background/thunder.png", &(sfIntRect){0, 0, 256, 173});
     _running_scene->thunder.sprite = sfSprite_create();
     sfSprite_setTexture(_running_scene->thunder.sprite, _running_scene->thunder.texture, sfFalse);
-    sfSprite_setPosition(_running_scene->thunder.sprite, (sfVector2f){0.0, 0.0});
+    sfSprite_setPosition(_running_scene->thunder.sprite, (sfVector2f){0.0 * SCALE_FACTOR, 0.0 * SCALE_FACTOR});
     sfSprite_setScale(_running_scene->thunder.sprite, (sfVector2f){SCALE_FACTOR, SCALE_FACTOR});
 }

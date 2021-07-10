@@ -35,16 +35,16 @@ void aju_item_pos(items_list *_list)
         _list->item = _list->item->previous;
     }
     if (_list->item->next == NULL) {
-        if (_list->item->pos.x <= -300)
-            _list->item->pos.x = -300;
-        _list->item->pos.x -= 300 * sfTime_asSeconds(sfClock_getElapsedTime(_list->move_clock));
+        if (_list->item->pos.x <= (-85.714285714 * SCALE_FACTOR))
+            _list->item->pos.x = (-85.714285714 * SCALE_FACTOR);
+        _list->item->pos.x -= (85.714285714 * SCALE_FACTOR) * sfTime_asSeconds(sfClock_getElapsedTime(_list->move_clock));
         sfSprite_setPosition(_list->item->sprite, _list->item->pos);
     }
     else
         while (_list->item->next != NULL) {
-            if (_list->item->pos.x <= -300)
-                _list->item->pos.x = -300;
-            _list->item->pos.x -= 300 * sfTime_asSeconds(sfClock_getElapsedTime(_list->move_clock));
+            if (_list->item->pos.x <= (-85.714285714 * SCALE_FACTOR))
+                _list->item->pos.x = (-85.714285714 * SCALE_FACTOR);
+            _list->item->pos.x -= (85.714285714 * SCALE_FACTOR) * sfTime_asSeconds(sfClock_getElapsedTime(_list->move_clock));
             sfSprite_setPosition(_list->item->sprite, _list->item->pos);
             _list->item = _list->item->next;
         }

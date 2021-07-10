@@ -36,26 +36,26 @@ sfIntRect fill_enemy_rect(int enemy_type)
 sfVector2f fill_enemy_pos(int enemy_type)
 {
     switch (enemy_type) {
-        case BAT: return ((sfVector2f){1500, 315});
+        case BAT: return ((sfVector2f){428.571428571 * SCALE_FACTOR, 90 * SCALE_FACTOR});
             break;
-        case WEREWOLF: return ((sfVector2f){1500, 367});
+        case WEREWOLF: return ((sfVector2f){428.571428571 * SCALE_FACTOR, 104.857142857 * SCALE_FACTOR});
             break;
-        case PANTHER: return ((sfVector2f){1500, 435});
+        case PANTHER: return ((sfVector2f){428.571428571 * SCALE_FACTOR, 124.285714286 * SCALE_FACTOR});
             break;
-        default: return ((sfVector2f){1500, 0});
+        default: return ((sfVector2f){428.571428571 * SCALE_FACTOR, 0 * SCALE_FACTOR});
     }
 }
 
 sfIntRect fill_enemy_hitbox(int enemy_type)
 {
     switch (enemy_type) {
-        case BAT: return ((sfIntRect){0, 0, 10 * 3.5, 18 * 3.5});
+        case BAT: return ((sfIntRect){0 * SCALE_FACTOR, 0 * SCALE_FACTOR, 10 * SCALE_FACTOR, 18 * SCALE_FACTOR});
             break;
-        case WEREWOLF: return ((sfIntRect){5, 11, 12 * 3.5, 35 * 3.5});
+        case WEREWOLF: return ((sfIntRect){1.428571429 * SCALE_FACTOR, 3.142857143 * SCALE_FACTOR, 12 * SCALE_FACTOR, 35 * SCALE_FACTOR});
             break;
-        case PANTHER: return ((sfIntRect){3, 4, 35 * 3.5, 10 * 3.5});
+        case PANTHER: return ((sfIntRect){0.857142857 * SCALE_FACTOR, 1.142857143 * SCALE_FACTOR, 35 * SCALE_FACTOR, 10 * SCALE_FACTOR});
             break;
-        default: return ((sfIntRect){0, 0, 16 * 3.5, 29 * 3.5});
+        default: return ((sfIntRect){0 * SCALE_FACTOR, 0 * SCALE_FACTOR, 16 * SCALE_FACTOR, 29 * SCALE_FACTOR});
     }
 }
 

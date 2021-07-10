@@ -13,10 +13,10 @@ void aji_player(player *_player)
     _player->anim_clock = sfClock_create();
     _player->move_clock = sfClock_create();
     _player->sprite = sfSprite_create();
-    _player->hitbox = (sfIntRect){0, 0, 0, 0,};
+    _player->hitbox = (sfIntRect){0, 0, 0, 0};
     sfSprite_setScale(_player->sprite, (sfVector2f){SCALE_FACTOR, SCALE_FACTOR});
-    _player->pos.x = 100;
-    _player->pos.y = 357;
+    _player->pos.x = 28.571428571 * SCALE_FACTOR;
+    _player->pos.y = 102 * SCALE_FACTOR;
     _player->state = IDLE;
     _player->dy = 0;
     _player->texture = sfTexture_createFromFile("img/alucard/alucard_sheet.png",

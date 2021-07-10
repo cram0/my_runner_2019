@@ -10,19 +10,19 @@
 void aju_bat_hitbox(enemy_t *_bat)
 {
     _bat->hitbox.left = _bat->pos.x;
-    _bat->hitbox.top = _bat->pos.y + 25;
+    _bat->hitbox.top = _bat->pos.y + 7.142857143 * SCALE_FACTOR;
 }
 
 void aju_ww_hitbox(enemy_t *_ww)
 {
-    _ww->hitbox.left = _ww->pos.x + 25;
-    _ww->hitbox.top = _ww->pos.y + 15;
+    _ww->hitbox.left = _ww->pos.x + 7.142857143 * SCALE_FACTOR;
+    _ww->hitbox.top = _ww->pos.y + 4.285714286 * SCALE_FACTOR;
 }
 
 void aju_panther_hitbox(enemy_t *_panther)
 {
-    _panther->hitbox.left = _panther->pos.x + 50;
-    _panther->hitbox.top = _panther->pos.y + 25;
+    _panther->hitbox.left = _panther->pos.x + 14.285714286 * SCALE_FACTOR;
+    _panther->hitbox.top = _panther->pos.y + 7.142857143 * SCALE_FACTOR;
 
 }
 

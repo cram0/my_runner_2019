@@ -16,7 +16,7 @@ void aju_player_event(player *_player)
             _player->stance_anim.jumping.rect.left = 0;
             _player->stance_anim.crouch.rect.left = 0;
             _player->stance_anim.running.rect.left = 192;
-            _player->dy = -700;
+            _player->dy = -200 * SCALE_FACTOR;
         }
     if (sfKeyboard_isKeyPressed(sfKeyS))
         if (_player->state == RUNNING || _player->state == CROUCH) {

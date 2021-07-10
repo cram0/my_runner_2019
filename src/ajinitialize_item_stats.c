@@ -33,17 +33,17 @@ sfIntRect fill_item_hitbox(int item_id)
 {
     switch (item_id) {
         case ICE_CREAM :
-            return ((sfIntRect){0, 0, 13 * 3.5, 17 * 3.5});
+            return ((sfIntRect){0, 0, 13 * SCALE_FACTOR, 17 * SCALE_FACTOR});
         case TURKEY :
-            return ((sfIntRect){0, 0, 19 * 3.5, 15 * 3.5});
+            return ((sfIntRect){0, 0, 19 * SCALE_FACTOR, 15 * SCALE_FACTOR});
         case SHORTCAKE :
-            return ((sfIntRect){0, 0, 13 * 3.5, 13 * 3.5});
+            return ((sfIntRect){0, 0, 13 * SCALE_FACTOR, 13 * SCALE_FACTOR});
         case APPLE :
-            return ((sfIntRect){0, 0, 9 * 3.5, 9 * 3.5});
+            return ((sfIntRect){0, 0, 9 * SCALE_FACTOR, 9 * SCALE_FACTOR});
         case SPAGHETTI :
-            return ((sfIntRect){0, 0, 22 * 3.5, 16 * 3.5});
+            return ((sfIntRect){0, 0, 22 * SCALE_FACTOR, 16 * SCALE_FACTOR});
         case PARFAIT :
-            return ((sfIntRect){0, 0, 11 * 3.5, 17 * 3.5});
+            return ((sfIntRect){0, 0, 11 * SCALE_FACTOR, 17 * SCALE_FACTOR});
         default:
             return ((sfIntRect){0, 0, 0, 0});
     }
@@ -58,18 +58,18 @@ sfVector2f fill_item_pos(int item_id)
 {
     switch (item_id) {
         case ICE_CREAM :
-            return ((sfVector2f){1000, 476});
+            return ((sfVector2f){285.714285714 * SCALE_FACTOR, 136 * SCALE_FACTOR});
         case TURKEY :
-            return ((sfVector2f){1000, 483});
+            return ((sfVector2f){285.714285714 * SCALE_FACTOR, 138 * SCALE_FACTOR});
         case SHORTCAKE :
-            return ((sfVector2f){1000, 490});
+            return ((sfVector2f){285.714285714 * SCALE_FACTOR, 140 * SCALE_FACTOR});
         case APPLE :
-            return ((sfVector2f){1000, 504});
+            return ((sfVector2f){285.714285714 * SCALE_FACTOR, 144 * SCALE_FACTOR});
         case SPAGHETTI :
-            return ((sfVector2f){1000, 480});
+            return ((sfVector2f){285.714285714 * SCALE_FACTOR, 137 * SCALE_FACTOR});
         case PARFAIT :
-            return ((sfVector2f){1000, 476});
+            return ((sfVector2f){285.714285714 * SCALE_FACTOR, 136 * SCALE_FACTOR});
         default :
-            return ((sfVector2f){1000, 600});
+            return ((sfVector2f){285.714285714 * SCALE_FACTOR, 172 * SCALE_FACTOR});
     }
 }

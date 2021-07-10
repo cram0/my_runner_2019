@@ -6,7 +6,7 @@
 */
 
 #include "../include/my_runner.h"
-static const float GRAVITY = 1250;
+static const float GRAVITY = 357.142857143 * SCALE_FACTOR;
 
 void aju_player_position_y(player *_player)
 {
@@ -19,8 +19,8 @@ void aju_player_position_y(player *_player)
         _player->pos.y += _player->dy * sfTime_asSeconds(sfClock_getElapsedTime
         (_player->move_clock));
     }
-    if (_player->pos.y > 357.0) {
-        _player->pos.y = 357.0;
+    if (_player->pos.y > 102.0 * SCALE_FACTOR) {
+        _player->pos.y = 102.0 * SCALE_FACTOR;
         _player->state = RUNNING;
     }
 }

@@ -13,7 +13,7 @@ void aji_game_over_scene(game_over_scene *_scene, sfRenderWindow *_window)
     _scene->sprite = sfSprite_create();
     _scene->texture = sfTexture_createFromFile("img/background/gameover.png",
     NULL);
-    _scene->pos = (sfVector2f){0, 0};
+    _scene->pos = (sfVector2f){0 * SCALE_FACTOR, 0 * SCALE_FACTOR};
     _scene->text_rect = (sfIntRect){0, 0, 256, 207};
     _scene->music = sfMusic_createFromFile("music/game_over.ogg");
     _scene->clock = sfClock_create();

@@ -15,6 +15,6 @@ void aji_item_tag(item_tag_t *tag)
     tag->duration_clock = sfClock_create();
     tag->current_tag_type = 1;
     sfSprite_setTexture(tag->sprite, tag->texture, sfFalse);
-    sfSprite_setPosition(tag->sprite, (sfVector2f){45, 720});
+    sfSprite_setPosition(tag->sprite, (sfVector2f){12 * SCALE_FACTOR, 205 * SCALE_FACTOR});
     sfSprite_setScale(tag->sprite, (sfVector2f){SCALE_FACTOR, SCALE_FACTOR});
 }
