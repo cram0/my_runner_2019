@@ -79,6 +79,9 @@ void aji_enemy_list(enemy_t *_enemies, char *map, enemy_types_text *_enemy_type)
             case '3': offset += PANTHER_POS_OFFSET;
                 add_node_enemy(_enemies, PANTHER, _enemy_type, offset);
                 break;
+            case '4': offset += KNIGHT_POS_OFFSET;
+                add_node_enemy(_enemies, KNIGHT, _enemy_type, offset);
+                break;
             case ' ': offset += BLANK_MONSTER_OFFSET;
                 break;
             default:

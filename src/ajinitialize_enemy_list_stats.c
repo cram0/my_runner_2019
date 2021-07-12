@@ -16,6 +16,8 @@ sfTexture *fill_enemy_texture(int enemy_type, enemy_types_text *_types)
             break;
         case PANTHER: return (_types->panther_texture);
             break;
+        case KNIGHT: return (_types->knight_texture);
+            break;
         default: return (_types->panther_texture);
     }
 }
@@ -29,7 +31,9 @@ sfIntRect fill_enemy_rect(int enemy_type)
             break;
         case PANTHER: return ((sfIntRect){0, 0, 61, 26});
             break;
-        default: return ((sfIntRect){0, 0, 0, 0});
+        case KNIGHT: return ((sfIntRect){0, 0, 72, 87});
+            break;
+        default: return ((sfIntRect){0, 0, 100, 100});
     }
 }
 
@@ -41,6 +45,8 @@ sfVector2f fill_enemy_pos(int enemy_type)
         case WEREWOLF: return ((sfVector2f){428.571428571 * SCALE_FACTOR, 104.857142857 * SCALE_FACTOR});
             break;
         case PANTHER: return ((sfVector2f){428.571428571 * SCALE_FACTOR, 124.285714286 * SCALE_FACTOR});
+            break;
+        case KNIGHT: return ((sfVector2f){428.571428571 * SCALE_FACTOR, 66 * SCALE_FACTOR});
             break;
         default: return ((sfVector2f){428.571428571 * SCALE_FACTOR, 0 * SCALE_FACTOR});
     }
@@ -55,6 +61,8 @@ sfIntRect fill_enemy_hitbox(int enemy_type)
             break;
         case PANTHER: return ((sfIntRect){0.857142857 * SCALE_FACTOR, 1.142857143 * SCALE_FACTOR, 35 * SCALE_FACTOR, 10 * SCALE_FACTOR});
             break;
+        case KNIGHT: return ((sfIntRect){0 * SCALE_FACTOR, 0 * SCALE_FACTOR, 40 * SCALE_FACTOR, 50 * SCALE_FACTOR});
+            break;
         default: return ((sfIntRect){0 * SCALE_FACTOR, 0 * SCALE_FACTOR, 16 * SCALE_FACTOR, 29 * SCALE_FACTOR});
     }
 }
@@ -67,6 +75,8 @@ int fill_enemy_type(int enemy_id)
         case WEREWOLF: return (WEREWOLF);
             break;
         case PANTHER: return (PANTHER);
+            break;
+        case KNIGHT: return (KNIGHT);
             break;
         default: return (0);
     }

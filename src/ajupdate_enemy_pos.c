@@ -21,6 +21,10 @@ void aju_enemy_pos(enemy_t *_enemy, enemies_clocks *_clocks)
             (sfClock_getElapsedTime
             (_clocks->move_clock));
             break;
+        case KNIGHT: _enemy->pos.x -= (250 * SCALE_FACTOR) * sfTime_asSeconds
+            (sfClock_getElapsedTime
+            (_clocks->move_clock));
+            break;
     }
     sfSprite_setPosition(_enemy->sprite, _enemy->pos);
 }

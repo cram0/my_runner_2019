@@ -43,6 +43,18 @@ void aju_panth_anim(enemy_t *_panth)
     }
 }
 
+void aju_knight_anim(enemy_t *_knight)
+{
+    if (!_knight->anim_clock) {_knight->anim_clock = sfClock_create(); }
+    if (sfTime_asSeconds(sfClock_getElapsedTime(_knight->anim_clock)) > 0.120) {
+        if (_knight->text_rect.left == _knight->text_rect.width * 5)
+            _knight->text_rect.left = 0;
+        sfSprite_setTextureRect(_knight->sprite, _knight->text_rect);
+        _knight->text_rect.left += _knight->text_rect.width;
+        sfClock_restart(_knight->anim_clock);
+    }
+}
+
 void aju_enemy_list_anims(enemy_t *_enemy)
 {
     while (_enemy->next != NULL) {
@@ -52,6 +64,8 @@ void aju_enemy_list_anims(enemy_t *_enemy)
             case WEREWOLF: aju_ww_anim(_enemy);
                 break;
             case PANTHER: aju_panth_anim(_enemy);
+                break;
+            case KNIGHT: aju_knight_anim(_enemy);
                 break;
         }
         _enemy = _enemy->next;

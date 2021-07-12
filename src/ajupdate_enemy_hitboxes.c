@@ -26,6 +26,13 @@ void aju_panther_hitbox(enemy_t *_panther)
 
 }
 
+void aju_knight_hitbox(enemy_t *_knight)
+{
+    _knight->hitbox.left = _knight->pos.x + 14.285714286 * SCALE_FACTOR;
+    _knight->hitbox.top = _knight->pos.y + 8 * SCALE_FACTOR;
+
+}
+
 void aju_enemy_hitbox(enemy_t *_enemy)
 {
     switch (_enemy->type) {
@@ -34,6 +41,8 @@ void aju_enemy_hitbox(enemy_t *_enemy)
         case WEREWOLF: aju_ww_hitbox(_enemy);
             break;
         case PANTHER: aju_panther_hitbox(_enemy);
+            break;
+        case KNIGHT: aju_knight_hitbox(_enemy);
             break;
     }
 }

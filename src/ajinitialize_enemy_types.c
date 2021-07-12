@@ -15,4 +15,6 @@ void aji_enemy_types_text(enemy_types_text *_enemy_types)
     "img/monsters/panther.png", NULL);
     _enemy_types->werewolf_texture = sfTexture_createFromFile(
     "img/monsters/werewolf.png", NULL);
+    _enemy_types->knight_texture = sfTexture_createFromFile(
+    "img/monsters/knight.png", NULL);
 }

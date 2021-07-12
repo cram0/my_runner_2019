@@ -36,6 +36,7 @@
 #define BAT_POS_OFFSET (28.5 * SCALE_FACTOR)
 #define WEREWOLF_POS_OFFSET (171 * SCALE_FACTOR)
 #define PANTHER_POS_OFFSET (285 * SCALE_FACTOR)
+#define KNIGHT_POS_OFFSET (240 * SCALE_FACTOR)
 
 #define BASE_ITEM_OFFSET (285 * SCALE_FACTOR)
 #define BLANK_ITEM_OFFSET (28 * SCALE_FACTOR)
@@ -52,7 +53,8 @@ enum player_state {
 enum enemy_type {
     BAT = 1,
     WEREWOLF,
-    PANTHER
+    PANTHER,
+    KNIGHT
 } ;
 
 enum item_type {
@@ -141,6 +143,7 @@ typedef struct enemy_types_text {
     sfTexture *bat_texture;
     sfTexture *panther_texture;
     sfTexture *werewolf_texture;
+    sfTexture *knight_texture;
 } enemy_types_text ;
 
 typedef struct enemy_t {
@@ -342,9 +345,11 @@ void aju_enemy_hitbox(enemy_t *);
 void aju_bat_hitbox(enemy_t *);
 void aju_ww_hitbox(enemy_t *);
 void aju_panther_hitbox(enemy_t *);
+void aju_knight_hitbox(enemy_t *);
 void aju_bat_anim(enemy_t *);
 void aju_ww_anim(enemy_t *);
 void aju_panth_anim(enemy_t *);
+void aju_knight_anim(enemy_t *);
 void aju_hitbox_collision(running_scene *);
 void reset_enemies_clocks(enemies_clocks *);
 void aju_game_over_scene(game_over_scene *);

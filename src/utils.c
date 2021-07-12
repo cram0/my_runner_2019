@@ -18,7 +18,7 @@ bool has_monsters(char *map)
     int i = 0;
 
     while (map[i]) {
-        if (map[i] == '1' || map[i] == '2' || map[i] == '3')
+        if (map[i] == '1' || map[i] == '2' || map[i] == '3' || map[i] == '4')
             monster_count++;
         i++;
     }
@@ -49,8 +49,9 @@ bool is_good_map(char *map)
 
     while (map[i]) {
         if (map[i] != '_' && map[i] != '1' && map[i] != '2' && map[i] != '3'
-        && map[i] != ' ' && map[i] != '\n' && map[i] != 's' && map[i] != 'i'
-        && map[i] != 't' && map[i] != 'a' && map[i] != 'S' && map[i] != 'p')
+        && map[i] != '4' && map[i] != ' ' && map[i] != '\n' && map[i] != 's'
+        && map[i] != 'i' && map[i] != 't' && map[i] != 'a' && map[i] != 'S'
+        && map[i] != 'p')
             return (false);
         i++;
     }
