@@ -81,7 +81,7 @@ void aju_option_foreground(option_scene *_scene, sfEvent *_event)
 void aju_edit_pixel(option_scene *_scene, int x, int y, sfUint8 color)
 {
     if (color == 255) {
-        sfColor color = {_scene->slider[0]->curr_value * 17, _scene->slider[1]->curr_value * 17, _scene->slider[2]->curr_value * 17, 255};
+        sfColor color = {(_scene->slider[0]->curr_value * 17) / 5 * 4, (_scene->slider[1]->curr_value * 17) / 5 * 4, (_scene->slider[2]->curr_value * 17) / 5 * 4, 255};
         sfImage_setPixel(_scene->alucard_img, x, y, color);
     }
     if (color == 227) {
