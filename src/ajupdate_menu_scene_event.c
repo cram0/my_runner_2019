@@ -18,4 +18,8 @@ void aju_menu_scene_event(menu_scene *_scene)
         sfSound_play(_scene->sound_start);
         *_scene->game_state = INGAME;
     }
+    if (sfKeyboard_isKeyPressed(sfKeyP)) {
+        sfSound_play(_scene->sound_start);
+        *_scene->game_state = OPTION;
+    }
 }

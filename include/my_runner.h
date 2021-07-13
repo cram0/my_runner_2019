@@ -41,6 +41,8 @@
 #define BASE_ITEM_OFFSET (285 * SCALE_FACTOR)
 #define BLANK_ITEM_OFFSET (28 * SCALE_FACTOR)
 
+#define OPTION_SLIDER_COUNT 3
+
 enum player_state {
     IDLE,
     IDLETORUN,
@@ -69,7 +71,8 @@ enum item_type {
 enum game_state {
     INGAME,
     MENU,
-    GAMEOVER
+    GAMEOVER,
+    OPTION
 } ;
 
 typedef struct stance {
@@ -246,6 +249,27 @@ typedef struct game_over_scene {
     sfClock *clock;
 } game_over_scene ;
 
+typedef struct slider_t {
+    sfRectangleShape *slider;
+    sfRectangleShape *indicator;
+    sfVector2f slider_pos;
+    sfVector2f indicator_pos;
+    int min_value;
+    int max_value;
+    int curr_value;
+    sfText *value_text;
+} slider_t;
+
+typedef struct option_scene {
+    sfRenderWindow *window;
+    sfClock *clock;
+    menu_background background;
+    slider_t *slider[3];
+    sfRectangleShape *preview_rect;
+    int *game_state;
+    int selector_index;
+} option_scene;
+
 typedef struct game_core {
     sfRenderWindow *window;
     int game_state;
@@ -253,6 +277,7 @@ typedef struct game_core {
     running_scene running_scene;
     menu_scene menu_scene;
     game_over_scene game_over_scene;
+    option_scene option_scene;
 } game_core ;
 
 // INIT
