@@ -63,10 +63,12 @@ void aji_option_foreground(option_scene *_scene)
     aji_preview_rect(_scene);
 }
 
-void aji_option_scene(option_scene *_scene, sfRenderWindow *_window)
+void aji_option_scene(option_scene *_scene, sfRenderWindow *_window, sfTexture *_alk_txt)
 {
     _scene->window = _window;
     _scene->selector_index = 0;
+    _scene->original_txt = sfTexture_copy(_alk_txt);
+    _scene->player_txt = _alk_txt;
     aji_option_background(&_scene->background);
     aji_option_foreground(_scene);
 }
@@ -90,5 +92,5 @@ void aji_game_core(game_core *_game_core, char *map)
     aji_game_over_scene(&_game_core->game_over_scene, _game_core->window);
     aji_menu_scene(&_game_core->menu_scene, _game_core->window);
     aji_running_scene(&_game_core->running_scene, _game_core->window, map);
-    aji_option_scene(&_game_core->option_scene, _game_core->window);
+    aji_option_scene(&_game_core->option_scene, _game_core->window, _game_core->running_scene.player.texture);
 }

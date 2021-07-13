@@ -265,7 +265,12 @@ typedef struct option_scene {
     sfClock *clock;
     menu_background background;
     slider_t *slider[3];
+
     sfRectangleShape *preview_rect;
+    sfTexture *original_txt;
+    sfTexture *player_txt;
+    sfImage *alucard_img;
+
     int *game_state;
     int selector_index;
 } option_scene;

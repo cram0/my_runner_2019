@@ -7,6 +7,19 @@
 
 #include "../include/my_runner.h"
 
+void aju_current_selector_color(option_scene *_scene)
+{
+    int idx = _scene->selector_index;
+    for (int i = 0; i < OPTION_SLIDER_COUNT; i++) {
+        if (i == idx) {
+            sfRectangleShape_setFillColor(_scene->slider[i]->indicator, sfYellow);
+        }
+        else {
+            sfRectangleShape_setFillColor(_scene->slider[i]->indicator, sfWhite);
+        }
+    }
+}
+
 void aju_option_selector(option_scene *_scene, sfKeyCode key)
 {
     int idx = _scene->selector_index;
@@ -61,14 +74,49 @@ void aju_option_foreground(option_scene *_scene, sfEvent *_event)
             aju_option_selector(_scene, sfKeyRight);
         }
     }
+    aju_current_selector_color(_scene);
     aju_option_preview_rect(_scene);
+}
+
+void aju_edit_pixel(option_scene *_scene, int x, int y, sfUint8 color)
+{
+    if (color == 255) {
+        sfColor color = {_scene->slider[0]->curr_value * 17, _scene->slider[1]->curr_value * 17, _scene->slider[2]->curr_value * 17, 255};
+        sfImage_setPixel(_scene->alucard_img, x, y, color);
+    }
+    if (color == 227) {
+        sfColor color = {(_scene->slider[0]->curr_value * 17) / 3 * 2, (_scene->slider[1]->curr_value * 17) / 3 * 2, (_scene->slider[2]->curr_value * 17) / 3 * 2, 255};
+        sfImage_setPixel(_scene->alucard_img, x, y, color);
+    }
+    if (color == 170) {
+        sfColor color = {(_scene->slider[0]->curr_value * 17) / 3 * 1, (_scene->slider[1]->curr_value * 17) / 3 * 1, (_scene->slider[2]->curr_value * 17) / 3 * 1, 255};
+        sfImage_setPixel(_scene->alucard_img, x, y, color);
+    }
+}
+
+void aju_edit_alucard_cape(option_scene *_scene)
+{
+    sfTexture *org_txt = sfTexture_createFromFile("img/alucard/alucard_sheet_capes.png", NULL);
+    _scene->alucard_img = sfTexture_copyToImage(org_txt);
+    sfTexture_destroy(org_txt);
+    sfVector2u img_size = sfImage_getSize(_scene->alucard_img);
+    for (unsigned int y = 0; y < img_size.y; y++) {
+        for (unsigned int x = 0; x < img_size.x; x++) {
+            sfColor color = sfImage_getPixel(_scene->alucard_img, x, y);
+            aju_edit_pixel(_scene, x, y, color.g);
+        }
+    }
+    sfTexture_destroy(_scene->player_txt);
+    _scene->player_txt = sfTexture_createFromImage(_scene->alucard_img, NULL);
 }
 
 void aju_option_scene_event(option_scene *_scene, sfEvent *_event)
 {
     if (_event->type == sfEvtKeyPressed) {
-        if (_event->key.code == sfKeyEscape)
+        if (_event->key.code == sfKeyEscape) {
+            aju_edit_alucard_cape(_scene);
             *_scene->game_state = MENU;
+        }
     }
     aju_option_foreground(_scene, _event);
 }
