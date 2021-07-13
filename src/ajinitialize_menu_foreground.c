@@ -22,5 +22,5 @@ void aji_menu_foreground(menu_foreground *_fg)
     sfSprite_setPosition(_fg->start_spr, (sfVector2f){48 * SCALE_FACTOR, 171 * SCALE_FACTOR});
     sfSprite_setPosition(_fg->title_spr, (sfVector2f){28 * SCALE_FACTOR, 28 * SCALE_FACTOR});
     sfSprite_setScale(_fg->start_spr, (sfVector2f){SCALE_FACTOR / 1.75, SCALE_FACTOR / 1.75});
-    sfSprite_setScale(_fg->title_spr, (sfVector2f){SCALE_FACTOR / 2.333333333, SCALE_FACTOR / 1.75});
+    sfSprite_setScale(_fg->title_spr, (sfVector2f){SCALE_FACTOR / 2.333333333, SCALE_FACTOR / 1.5});
 }
